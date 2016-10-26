@@ -9,3 +9,6 @@
 2. ruby编程编写Vagrantfile
 3. vagrant shell provisioning过程中，shell脚本接受Vagrantfile传入的环境变量
 4. flanneld使用etcd存储子网信息，作为etcd的客户端，访问etcd的127.0.0.1:2379。
+
+## 接下来
+1. 新增kubernetes节点
