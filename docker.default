@@ -1,0 +1,6 @@
+if [ -f /run/flannel/subnet.env ]; then  
+    echo "update docker options for flannel..."
+    . /run/flannel/subnet.env
+
+    DOCKER_OPTS="--bip=${FLANNEL_SUBNET} --mtu=${FLANNEL_MTU}"
+fi
