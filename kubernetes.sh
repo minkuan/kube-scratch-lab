@@ -22,6 +22,7 @@ tar -zxvf kubernetes-server-linux-amd64.tar.gz
 
 # Make symlink for kubectl binary to interact with cluster
 ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
+echo "alias kubectl='kubectl --server=44.0.0.103:8888'" | tee -a ~/.bashrc && source ~/.bashrc
 
 # Create etcd's logging directory
 mkdir /var/log/kubernetes
