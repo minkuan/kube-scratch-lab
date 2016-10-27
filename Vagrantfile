@@ -26,6 +26,8 @@ Vagrant.configure(2) do |config|
       config.vm.provider :virtualbox do |vb|
         vb.memory = $app_mem
         vb.cpus = $app_cpus
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       end
 
       # create a private network
@@ -61,7 +63,7 @@ Vagrant.configure(2) do |config|
 
       # section D - kubernetes
       config.vm.provision "shell", name: "kubernetes", path: "kubernetes.sh"
-      config.vm.provision "shell", name: "kubernetes", path: "kubelet.sh"
+      config.vm.provision "shell", name: "kubernetes", path: "kubelet.sh", env:{"IP"=>ip}
       config.vm.provision "shell", name: "kubernetes", path: "kube-proxy.sh"
       if i == $instances
         config.vm.provision "shell", name: "kubernetes", path: "kube-apiserver.sh"
