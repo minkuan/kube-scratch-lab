@@ -4,7 +4,7 @@
 
 基于vagrant(1.8.1) ubuntu(Ubuntu 14.04.5 LTS, vagrant ubuntu/trusty64)虚拟机，从0到1建立kubernetes 1.5集群
 
-1. 以flannel作为kubernetes网络管理组件，管理kubernetes集群子网，overlay网络数据
+1. 以flannel(0.6.2)作为kubernetes网络管理组件，管理kubernetes集群子网，overlay网络数据
 2. 以etcd kv-store存储flannel的子网配置
 3. kubernetes与etcd的交互
 4. ubuntu/linux service机制
@@ -13,6 +13,14 @@
 
 	- /etc/init/下的*.conf和*.override
 	- service接受环境变量
+
+## 步骤
+
+1. 下载
+		wget -c https://github.com/coreos/etcd/releases/download/v3.0.1/etcd-v3.0.1-linux-amd64.tar.gz
+		wget -c https://github.com/coreos/flannel/releases/download/v0.6.2/flannel-v0.6.2-linux-amd64.tar.gz
+2. 建立并起动vagrant虚拟机集群
+		vagrant up
 
 ## 问题及其解决
 1. vagrant内嵌docker provisioning时网速极慢，所以在虚拟机中连接VPN；但手工docker provision时，发生vagrant不能加入docker组问题。
