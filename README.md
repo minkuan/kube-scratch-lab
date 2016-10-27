@@ -17,9 +17,11 @@
 ## 步骤
 
 1. 下载
+
 		wget -c https://github.com/coreos/etcd/releases/download/v3.0.1/etcd-v3.0.1-linux-amd64.tar.gz
 		wget -c https://github.com/coreos/flannel/releases/download/v0.6.2/flannel-v0.6.2-linux-amd64.tar.gz
 2. 建立并起动vagrant虚拟机集群
+
 		vagrant up
 
 ## 问题及其解决
