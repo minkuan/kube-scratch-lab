@@ -1,5 +1,9 @@
 # kube-scratch-lab
-## 目标: 基于vagrant(1.8.1) ubuntu(Ubuntu 14.04.5 LTS, vagrant ubuntu/trusty64)虚拟机，从0到1建立kubernetes 1.5集群
+
+## 目标
+
+基于vagrant(1.8.1) ubuntu(Ubuntu 14.04.5 LTS, vagrant ubuntu/trusty64)虚拟机，从0到1建立kubernetes 1.5集群
+
 1. 以flannel作为kubernetes网络管理组件，管理kubernetes集群子网，overlay网络数据
 2. 以etcd kv-store存储flannel的子网配置
 3. kubernetes与etcd的交互
