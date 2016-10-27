@@ -4,8 +4,9 @@
 2. 以etcd kv-store存储flannel的子网配置
 3. kubernetes与etcd的交互
 4. ubuntu/linux service机制: etcd/flannel/docker/kubernetes(kubelet/kube-proxy/kube-apiserver/kube-controller-manager/kube-scheduler) kube-dashboard? kube-dns?
-	- /etc/init/下的*.conf和*.override
-	- service接受环境变量
+		- /etc/init/下的*.conf和*.override
+		- service接受环境变量
+
 ## 问题及其解决
 1. vagrant内嵌docker provisioning时网速极慢，所以在虚拟机中连接VPN；但手工docker provision时，发生vagrant不能加入docker组问题。
 2. app-03 etcd不能加入etcd集群。app-03 etcd起动时失败，导致etcd service起动不成功；app-01 etcd leader报错：无法连接app-03 etcd。重起etcd leader才能解决；显然，重起etcd leader在工程实践中应当是不可接受的。
