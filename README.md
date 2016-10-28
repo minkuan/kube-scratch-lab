@@ -71,7 +71,9 @@
 		default       Active    1h
 		kube-system   Active    1h
 		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get po --all-namespaces
-		vagrant@app-03:~$
+		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get svc --all-namespaces
+		NAMESPACE   NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+		default     kubernetes   107.0.0.1    <none>        443/TCP   9h
 
 ## 详情
 全过程耗时约70分钟，主要时耗是vagrant docker provision
