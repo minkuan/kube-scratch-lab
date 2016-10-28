@@ -6119,3 +6119,26 @@
 	2016年 10月 28日 星期五 09:28:25 CST
 	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ 
 	
+## 验证
+1. 进程
+	pp-03:~$ ps -e -o pid,cmd | grep --color -E 'etcd|flannel|docker|kube' 
+		3190 etcd
+		3242 flanneld
+		5005 grep --color=auto --color -E etcd|flannel|docker|kube
+		31535 /usr/bin/dockerd --bip=44.1.53.1/24 --mtu=1472 --raw-logs
+		31544 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --shim docker-containerd-shim --metrics-interval=0 --start-timeout 2m --state-dir /var/run/docker/libcontainerd/containerd --runtime docker-runc
+		31692 kubelet --kubeconfig=/var/lib/kubelet/kubeconfig --require-kubeconfig=true --hostname-override=44.0.0.103 --logtostderr=true
+		31726 kube-proxy --master=http://44.0.0.103:8888 --proxy-mode=iptables --logtostderr=true
+		31764 kube-apiserver --advertise-address=44.0.0.103 --storage-backend=etcd3 --service-cluster-ip-range=107.0.0.0/16 --logtostderr=true --etcd-servers=http://127.0.0.1:2379 --insecure-bind-address=44.0.0.103 --insecure-port=8888 --kubelet-https=false
+		31796 kube-controller-manager --cluster-cidr=107.0.0.0/16 --cluster-name=vagrant --master=http://44.0.0.103:8888 --port=8890 --service-cluster-ip-range=107.0.0.0/16 --logtostderr=true
+		31848 kube-scheduler --master=http://44.0.0.103:8888 --logtostderr=true
+2. kubernetes
+		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get no 
+		NAME         STATUS    AGE
+		44.0.0.101   Ready     1h
+		44.0.0.102   Ready     1h
+		44.0.0.103   Ready     1h
+		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get ns
+		NAME          STATUS    AGE
+		default       Active    1h
+		kube-system   Active    1h
