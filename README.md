@@ -6122,8 +6122,7 @@
 ## 验证
 1. 进程
 
-	pp-03:~$ ps -e -o pid,cmd | grep --color -E 'etcd|flannel|docker|kube' 
-
+		pp-03:~$ ps -e -o pid,cmd | grep --color -E 'etcd|flannel|docker|kube' 
 		3190 etcd
 		3242 flanneld
 		5005 grep --color=auto --color -E etcd|flannel|docker|kube
