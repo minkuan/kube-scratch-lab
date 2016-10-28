@@ -6121,6 +6121,7 @@
 	
 ## 验证
 1. 进程
+
 	pp-03:~$ ps -e -o pid,cmd | grep --color -E 'etcd|flannel|docker|kube' 
 		3190 etcd
 		3242 flanneld
@@ -6133,6 +6134,7 @@
 		31796 kube-controller-manager --cluster-cidr=107.0.0.0/16 --cluster-name=vagrant --master=http://44.0.0.103:8888 --port=8890 --service-cluster-ip-range=107.0.0.0/16 --logtostderr=true
 		31848 kube-scheduler --master=http://44.0.0.103:8888 --logtostderr=true
 2. kubernetes
+
 		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get no 
 		NAME         STATUS    AGE
 		44.0.0.101   Ready     1h
