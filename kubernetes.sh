@@ -14,11 +14,11 @@ cd /opt/
 mkdir /opt/kubernetes-1.5.0
 
 # Extract the contents of the release
-tar -zxvf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
+tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
 
 # Extract the contents of the contents of the release (where the binaries actually reside)
 cd /opt/kubernetes-1.5.0/server/
-tar -zxvf kubernetes-server-linux-amd64.tar.gz
+tar -zxf kubernetes-server-linux-amd64.tar.gz
 
 # Make symlink for kubectl binary to interact with cluster
 ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
