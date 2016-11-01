@@ -2,10 +2,20 @@
 
 ## 目标
 
-基于vagrant(1.8.1) ubuntu(Ubuntu 14.04.5 LTS, vagrant ubuntu/trusty64)虚拟机，从0到1建立kubernetes 1.5集群，其中值得注意的是，kubernetes组件，如kubelet/kube-proxy/kube-apiserver/kube-controller-manager/kube-scheduler都是linux进程/服务。
+1. 从0到1建立kubernetes 1.5集群
 
-1. 以flannel(0.6.2)作为kubernetes网络管理组件，管理kubernetes集群子网，overlay网络数据
-2. 以etcd kv-store存储flannel的子网配置
+	- 部署kubernetes集群到3台vagrant ubuntu/trusty64虚拟机
+	- flannel(0.6.2) overlay传输kubernetes集群网络通信，管理kubernetes集群子网
+	- 部署kubernetes组件（如kubelet/kube-proxy/kube-apiserver/kube-controller-manager/kube-scheduler）为linux进程/服务
+	- etcd kv-store存储flannel的子网配置
+	- 设置docker bip为flannel网段
+
+2. 管理业务服务
+	- 开发业务服务
+	- 发布
+	- 外部调用
+	- 内部调用-kube-dns?
+
 3. kubernetes与etcd的交互
 4. ubuntu/linux service机制
 
