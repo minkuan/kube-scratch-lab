@@ -2,7 +2,7 @@
 
 ## 目标
 
-基于vagrant(1.8.1) ubuntu(Ubuntu 14.04.5 LTS, vagrant ubuntu/trusty64)虚拟机，从0到1建立kubernetes 1.5集群
+基于vagrant(1.8.1) ubuntu(Ubuntu 14.04.5 LTS, vagrant ubuntu/trusty64)虚拟机，从0到1建立kubernetes 1.5集群，其中值得注意的是，kubernetes组件，如kubelet/kube-proxy/kube-apiserver/kube-controller-manager/kube-scheduler都是linux进程/服务。
 
 1. 以flannel(0.6.2)作为kubernetes网络管理组件，管理kubernetes集群子网，overlay网络数据
 2. 以etcd kv-store存储flannel的子网配置
@@ -30,6 +30,16 @@
 3. etcd v3.1.0-rc版本报错：无法在0.0.0.0:2379找到etcd leader。
 4. Flag --api-servers has been deprecated, Use --kubeconfig instead. Will be removed in a future version.
 5. unknown flag: --experimental-flannel-overlay
+6. vagrant共享目录映射错误
+	Vagrant was unable to mount VirtualBox shared folders. This is usually because the filesystem "vboxsf" is not available. This filesystem is made available via the VirtualBox Guest Additions and kernel module. Please verify that these guest additions are properly installed in the guest. This is not a bug in Vagrant and is usually caused by a faulty Vagrant box. For context, the command attempted was: 
+		mount -t vboxsf -o uid=1000,gid=1000 vagrant /vagrant 
+	The error output from the command was: 
+	: No such device
+	解决办法：
+		- 升级virtualbox为5.1版本
+		- 升级vagrant为1.8.6版本
+		- 安装vagrant-vbguest插件
+			vagrant plugin install vagrant-vbguest
 
 ## 要点
 1. ubuntu service upstart配置：*.conf, *.override, *.conf中接受环境变量
