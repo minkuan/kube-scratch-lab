@@ -774,1268 +774,1234 @@
 	
 2. 优化为手工provision docker后，缩短为17分钟！其中还包括解决virtualbox guest additions版本问题。
 
-minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ date && vagrant up && date
-2016年 11月 01日 星期二 23:40:02 CST
-Bringing machine 'app-01' up with 'virtualbox' provider...
-Bringing machine 'app-02' up with 'virtualbox' provider...
-Bringing machine 'app-03' up with 'virtualbox' provider...
-==> app-01: Importing base box 'ubuntu/trusty64'...
-==> app-01: Matching MAC address for NAT networking...
-==> app-01: Checking if box 'ubuntu/trusty64' is up to date...
-==> app-01: There was a problem while downloading the metadata for your box
-==> app-01: to check for updates. This is not an error, since it is usually due
-==> app-01: to temporary network problems. This is just a warning. The problem
-==> app-01: encountered was:
-==> app-01: 
-==> app-01: Couldn't resolve host 'atlas.hashicorp.com'
-==> app-01: 
-==> app-01: If you want to check for box updates, verify your network connection
-==> app-01: is valid and try again.
-==> app-01: Setting the name of the VM: kube-scratch-lab_app-01_1478014845397_71312
-==> app-01: Clearing any previously set forwarded ports...
-==> app-01: Clearing any previously set network interfaces...
-==> app-01: Preparing network interfaces based on configuration...
-    app-01: Adapter 1: nat
-    app-01: Adapter 2: hostonly
-==> app-01: Forwarding ports...
-    app-01: 22 (guest) => 2222 (host) (adapter 1)
-==> app-01: Running 'pre-boot' VM customizations...
-==> app-01: Booting VM...
-==> app-01: Waiting for machine to boot. This may take a few minutes...
-    app-01: SSH address: 127.0.0.1:2222
-    app-01: SSH username: vagrant
-    app-01: SSH auth method: private key
-    app-01: Warning: Remote connection disconnect. Retrying...
-    app-01: 
-    app-01: Vagrant insecure key detected. Vagrant will automatically replace
-    app-01: this with a newly generated keypair for better security.
-    app-01: 
-    app-01: Inserting generated public key within guest...
-    app-01: Removing insecure key from the guest if it's present...
-    app-01: Key inserted! Disconnecting and reconnecting using new SSH key...
-==> app-01: Machine booted and ready!
-[app-01] GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
-stdin: is not a tty
- * Stopping VirtualBox Additions
-   ...done.
-stdin: is not a tty
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following packages were automatically installed and are no longer required:
-  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
-  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
-  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
-  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
-  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
-  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
-  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
-  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
-  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
-  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
-  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
-  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
-  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
-  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
-  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
-  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
-  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
-  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
-  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
-  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
-  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
-  manpages-dev notification-daemon sound-theme-freedesktop x11-common
-  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-  xserver-xorg-core
-Use 'apt-get autoremove' to remove them.
-The following packages will be REMOVED:
-  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
-0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
-After this operation, 12.1 MB disk space will be freed.
-(Reading database ... 62997 files and directories currently installed.)
-Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-
--------- Uninstall Beginning --------
-Module:  virtualbox-guest
-Version: 4.3.36
-Kernel:  3.13.0-98-generic (x86_64)
--------------------------------------
-
-Status: Before uninstall, this module version was ACTIVE on this kernel.
-
-vboxguest.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-
-vboxsf.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-
-vboxvideo.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-depmod....
-
-DKMS: uninstall completed.
-
-------------------------------
-Deleting module version: 4.3.36
-completely from the DKMS tree.
-------------------------------
-Done.
-Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-stdin: is not a tty
-Reading package lists...
-Building dependency tree...
-Reading state information...
-dkms is already the newest version.
-dkms set to manually installed.
-linux-headers-3.13.0-98-generic is already the newest version.
-linux-headers-3.13.0-98-generic set to manually installed.
-The following packages were automatically installed and are no longer required:
-  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
-  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
-  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
-  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
-  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
-  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
-  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
-  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
-  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
-  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
-  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
-  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
-  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
-  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
-  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
-  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
-  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
-  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
-  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
-  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-  xserver-xorg-core
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-Copy iso file /usr/share/virtualbox/VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
-stdin: is not a tty
-mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
-Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.36
-stdin: is not a tty
-Verifying archive integrity... All good.
-Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
-VirtualBox Guest Additions installer
-Copying additional installer modules ...
-Installing additional modules ...
-vboxadd.sh: Building Guest Additions kernel modules.
-vboxadd.sh: Starting the VirtualBox Guest Additions.
-
-Could not find the X.Org or XFree86 Window System, skipping.
-stdin: is not a tty
-
-Got different reports about installed GuestAdditions version:
-Virtualbox on your host claims:   4.3.36
-VBoxService inside the vm claims: 5.1.8
-Going on, assuming VBoxService is correct...
-Got different reports about installed GuestAdditions version:
-Virtualbox on your host claims:   4.3.36
-VBoxService inside the vm claims: 5.1.8
-Going on, assuming VBoxService is correct...
-==> app-01: Checking for guest additions in VM...
-    app-01: The guest additions on this VM do not match the installed version of
-    app-01: VirtualBox! In most cases this is fine, but in rare cases it can
-    app-01: prevent things such as shared folders from working properly. If you see
-    app-01: shared folder errors, please make sure the guest additions within the
-    app-01: virtual machine match the version of VirtualBox you have installed on
-    app-01: your host and reload your VM.
-    app-01: 
-    app-01: Guest Additions Version: 4.3.36
-    app-01: VirtualBox Version: 5.1
-==> app-01: Setting hostname...
-==> app-01: Configuring and enabling network interfaces...
-==> app-01: Mounting shared folders...
-    app-01: /vagrant => /home/minkuan/Documents/96-workspace/kube-scratch-lab
-==> app-01: Running provisioner: fix-no-tty (shell)...
-    app-01: Running: inline script
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: ipv6-forwarding
-==> app-01: net.ipv4.ip_forward = 1
-==> app-01: net.ipv6.conf.all.forwarding = 1
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: etcd
-==> app-01: + echo 'environments: 44.0.0.101, new, app-01=http:\/\/44.0.0.101:2380'
-==> app-01: environments: 44.0.0.101, new, app-01=http:\/\/44.0.0.101:2380
-==> app-01: + cd /opt/
-==> app-01: + mkdir /opt/etcd-v3.0.1
-==> app-01: + cp /vagrant/etcd-v3.0.1-linux-amd64.tar.gz /opt/
-==> app-01: + tar -zxf etcd-v3.0.1-linux-amd64.tar.gz -C etcd-v3.0.1 --strip-components=1
-==> app-01: + ln -s /opt/etcd-v3.0.1/etcd /usr/local/bin/etcd
-==> app-01: + ln -s /opt/etcd-v3.0.1/etcdctl /usr/local/bin/etcdctl
-==> app-01: + cp /vagrant/etcd.conf /etc/init/etcd.conf
-==> app-01: + sed -e s/MY_IP/44.0.0.101/g -e s/MY_CLUSTER_STATE/new/g -e 's/MY_CLUSTER/app-01=http:\/\/44.0.0.101:2380/g'
-==> app-01: + mkdir /var/lib/etcd
-==> app-01: + chown vagrant:vagrant /var/lib/etcd
-==> app-01: + mkdir /var/log/etcd
-==> app-01: + chown vagrant:vagrant /var/log/etcd
-==> app-01: + start etcd
-==> app-01: etcd start/running, process 5557
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: flannel
-==> app-01: + cd /opt/
-==> app-01: + mkdir /opt/flanneld-0.6.2
-==> app-01: + cp /vagrant/flannel-v0.6.2-linux-amd64.tar.gz /opt/
-==> app-01: + tar -zxf flannel-v0.6.2-linux-amd64.tar.gz -C flanneld-0.6.2
-==> app-01: + ln -s /opt/flanneld-0.6.2/flanneld /usr/local/bin/flanneld
-==> app-01: + cp /vagrant/flanneld.conf /etc/init/flanneld.conf
-==> app-01: + mkdir /var/log/flannel
-==> app-01: + chown vagrant:vagrant /var/log/flannel
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: flannel-config
-==> app-01: {
-==> app-01:   "Network": "44.0.0.0/8",
-==> app-01:   "SubnetLen": 24,
-==> app-01:   "SubnetMin": "44.1.0.0",
-==> app-01:   "SubnetMax": "44.10.0.0",
-==> app-01:   "Backend": {
-==> app-01:     "Type": "udp"
-==> app-01:   }
-==> app-01: }
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: flannel
-==> app-01: flanneld start/running, process 5637
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: etcd-add
-==> app-01: Added member named app-02 with ID b485eaaa2fd229ff to cluster
-==> app-01: 
-==> app-01: ETCD_NAME="app-02"
-==> app-01: ETCD_INITIAL_CLUSTER="app-01=http://44.0.0.101:2380,app-02=http://44.0.0.102:2380"
-==> app-01: ETCD_INITIAL_CLUSTER_STATE="existing"
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: docker
-==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-==> app-01: + apt-get update -qq
-==> app-01: + apt-get install -y docker.io
-==> app-01: Reading package lists...
-==> app-01: Building dependency tree...
-==> app-01: Reading state information...
-==> app-01: The following packages were automatically installed and are no longer required:
-==> app-01:   acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
-==> app-01:   fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
-==> app-01:   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
-==> app-01:   libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
-==> app-01:   libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
-==> app-01:   libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
-==> app-01:   libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
-==> app-01:   libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
-==> app-01:   libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-==> app-01:   libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-==> app-01:   libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
-==> app-01:   libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
-==> app-01:   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
-==> app-01:   libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
-==> app-01:   libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
-==> app-01:   libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
-==> app-01:   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
-==> app-01:   libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
-==> app-01:   libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
-==> app-01:   libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
-==> app-01:   libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
-==> app-01:   x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-==> app-01:   xserver-xorg-core
-==> app-01: Use 'apt-get autoremove' to remove them.
-==> app-01: The following extra packages will be installed:
-==> app-01:   aufs-tools cgroup-lite git git-man liberror-perl
-==> app-01: Suggested packages:
-==> app-01:   btrfs-tools debootstrap lxc rinse git-daemon-run git-daemon-sysvinit git-doc
-==> app-01:   git-el git-email git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki
-==> app-01:   git-svn
-==> app-01: The following NEW packages will be installed:
-==> app-01:   aufs-tools cgroup-lite docker.io git git-man liberror-perl
-==> app-01: 0 upgraded, 6 newly installed, 0 to remove and 15 not upgraded.
-==> app-01: Need to get 8,150 kB of archives.
-==> app-01: After this operation, 51.4 MB of additional disk space will be used.
-==> app-01: Get:1 http://mirrors.aliyun.com/ubuntu/ trusty/universe aufs-tools amd64 1:3.2+20130722-1.1 [92.3 kB]
-==> app-01: Get:2 http://mirrors.aliyun.com/ubuntu/ trusty-updates/universe docker.io amd64 1.6.2~dfsg1-1ubuntu4~14.04.1 [4,749 kB]
-==> app-01: Get:3 http://mirrors.aliyun.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
-==> app-01: Get:4 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
-==> app-01: Get:5 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
-==> app-01: Get:6 http://mirrors.aliyun.com/ubuntu/ trusty/main cgroup-lite all 1.9 [3,918 B]
-==> app-01: dpkg-preconfigure: unable to re-open stdin: No such file or directory
-==> app-01: Fetched 8,150 kB in 2min 39s (51.3 kB/s)
-==> app-01: Selecting previously unselected package aufs-tools.
-==> app-01: (Reading database ... 62722 files and directories currently installed.)
-==> app-01: Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1_amd64.deb ...
-==> app-01: Unpacking aufs-tools (1:3.2+20130722-1.1) ...
-==> app-01: Selecting previously unselected package docker.io.
-==> app-01: Preparing to unpack .../docker.io_1.6.2~dfsg1-1ubuntu4~14.04.1_amd64.deb ...
-==> app-01: Unpacking docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
-==> app-01: Selecting previously unselected package liberror-perl.
-==> app-01: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
-==> app-01: Unpacking liberror-perl (0.17-1.1) ...
-==> app-01: Selecting previously unselected package git-man.
-==> app-01: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
-==> app-01: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
-==> app-01: Selecting previously unselected package git.
-==> app-01: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
-==> app-01: Unpacking git (1:1.9.1-1ubuntu0.3) ...
-==> app-01: Selecting previously unselected package cgroup-lite.
-==> app-01: Preparing to unpack .../cgroup-lite_1.9_all.deb ...
-==> app-01: Unpacking cgroup-lite (1.9) ...
-==> app-01: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-==> app-01: Processing triggers for ureadahead (0.100.0-16) ...
-==> app-01: Setting up aufs-tools (1:3.2+20130722-1.1) ...
-==> app-01: Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
-==> app-01: Adding group `docker' (GID 113) ...
-==> app-01: Done.
-==> app-01: docker start/running, process 8280
-==> app-01: Setting up liberror-perl (0.17-1.1) ...
-==> app-01: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
-==> app-01: Setting up git (1:1.9.1-1ubuntu0.3) ...
-==> app-01: Setting up cgroup-lite (1.9) ...
-==> app-01: cgroup-lite start/running
-==> app-01: Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-==> app-01: Processing triggers for ureadahead (0.100.0-16) ...
-==> app-01: + service docker status
-==> app-01: docker start/running, process 8280
-==> app-01: + service docker stop
-==> app-01: docker stop/waiting
-==> app-01: + groupadd docker
-==> app-01: groupadd: group 'docker' already exists
-==> app-01: + usermod -aG docker vagrant
-==> app-01: + '[' -f /run/flannel/subnet.env ']'
-==> app-01: + . /run/flannel/subnet.env
-==> app-01: ++ FLANNEL_NETWORK=44.0.0.0/8
-==> app-01: ++ FLANNEL_SUBNET=44.1.38.1/24
-==> app-01: ++ FLANNEL_MTU=1472
-==> app-01: ++ FLANNEL_IPMASQ=false
-==> app-01: + sudo sed -i s/DOCKER_OPTS=/#DOCKER_OPTS=/g /etc/default/docker
-==> app-01: + sudo tee -a /etc/default/docker
-==> app-01: + echo 'DOCKER_OPTS="--bip=44.1.38.1/24 --mtu=1472"'
-==> app-01: DOCKER_OPTS="--bip=44.1.38.1/24 --mtu=1472"
-==> app-01: + service docker stop
-==> app-01: stop: Unknown instance: 
-==> app-01: + sudo ip link delete docker0
-==> app-01: Cannot find device "docker0"
-==> app-01: + service docker start
-==> app-01: docker start/running, process 8463
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: kubernetes
-==> app-01: + cd /opt/
-==> app-01: + mkdir /opt/kubernetes-1.5.0
-==> app-01: + tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
-==> app-01: + cd /opt/kubernetes-1.5.0/server/
-==> app-01: + tar -zxf kubernetes-server-linux-amd64.tar.gz
-==> app-01: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
-==> app-01: + echo 'alias kubectl='\''kubectl --server=44.0.0.103:8888'\'''
-==> app-01: + tee -a /root/.bashrc
-==> app-01: alias kubectl='kubectl --server=44.0.0.103:8888'
-==> app-01: + source /root/.bashrc
-==> app-01: ++ '[' -z '' ']'
-==> app-01: ++ return
-==> app-01: + mkdir /var/log/kubernetes
-==> app-01: + chown vagrant:vagrant /var/log/kubernetes
-==> app-01: + chown -R vagrant:vagrant /opt/kubernetes-1.5.0
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: kubernetes
-==> app-01: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubelet /usr/local/bin/kubelet
-==> app-01: + mkdir /var/lib/kubelet
-==> app-01: + cp /vagrant/.kubeconfig /var/lib/kubelet/kubeconfig
-==> app-01: + cp /vagrant/kubelet.conf /etc/init/kubelet.conf
-==> app-01: + env MY_IP=44.0.0.101
-==> app-01: XDG_SESSION_ID=2
-==> app-01: SHELL=/bin/bash
-==> app-01: TERM=vt100
-==> app-01: SSH_CLIENT=10.0.2.2 58102 22
-==> app-01: USER=root
-==> app-01: SUDO_USER=vagrant
-==> app-01: SUDO_UID=1000
-==> app-01: USERNAME=root
-==> app-01: MAIL=/var/mail/vagrant
-==> app-01: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-==> app-01: PWD=/home/vagrant
-==> app-01: LANG=en_US.UTF-8
-==> app-01: SHLVL=3
-==> app-01: HOME=/root
-==> app-01: SUDO_COMMAND=/bin/bash -l
-==> app-01: LOGNAME=root
-==> app-01: SSH_CONNECTION=10.0.2.2 58102 10.0.2.15 22
-==> app-01: XDG_RUNTIME_DIR=/run/user/1000
-==> app-01: SUDO_GID=1000
-==> app-01: IP=44.0.0.101
-==> app-01: _=/usr/bin/env
-==> app-01: MY_IP=44.0.0.101
-==> app-01: + start kubelet
-==> app-01: kubelet start/running, process 8598
-==> app-01: Running provisioner: shell...
-    app-01: Running: script: kubernetes
-==> app-01: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-proxy /usr/local/bin/kube-proxy
-==> app-01: + cp /vagrant/kube-proxy.conf /etc/init/kube-proxy.conf
-==> app-01: + start kube-proxy
-==> app-01: kube-proxy start/running, process 8631
-==> app-02: Importing base box 'ubuntu/trusty64'...
-==> app-02: Matching MAC address for NAT networking...
-==> app-02: Checking if box 'ubuntu/trusty64' is up to date...
-==> app-02: There was a problem while downloading the metadata for your box
-==> app-02: to check for updates. This is not an error, since it is usually due
-==> app-02: to temporary network problems. This is just a warning. The problem
-==> app-02: encountered was:
-==> app-02: 
-==> app-02: Couldn't resolve host 'atlas.hashicorp.com'
-==> app-02: 
-==> app-02: If you want to check for box updates, verify your network connection
-==> app-02: is valid and try again.
-==> app-02: Setting the name of the VM: kube-scratch-lab_app-02_1478015264574_89170
-==> app-02: Clearing any previously set forwarded ports...
-==> app-02: Fixed port collision for 22 => 2222. Now on port 2200.
-==> app-02: Clearing any previously set network interfaces...
-==> app-02: Preparing network interfaces based on configuration...
-    app-02: Adapter 1: nat
-    app-02: Adapter 2: hostonly
-==> app-02: Forwarding ports...
-    app-02: 22 (guest) => 2200 (host) (adapter 1)
-==> app-02: Running 'pre-boot' VM customizations...
-==> app-02: Booting VM...
-==> app-02: Waiting for machine to boot. This may take a few minutes...
-    app-02: SSH address: 127.0.0.1:2200
-    app-02: SSH username: vagrant
-    app-02: SSH auth method: private key
-    app-02: Warning: Remote connection disconnect. Retrying...
-    app-02: Warning: Remote connection disconnect. Retrying...
-    app-02: 
-    app-02: Vagrant insecure key detected. Vagrant will automatically replace
-    app-02: this with a newly generated keypair for better security.
-    app-02: 
-    app-02: Inserting generated public key within guest...
-    app-02: Removing insecure key from the guest if it's present...
-    app-02: Key inserted! Disconnecting and reconnecting using new SSH key...
-==> app-02: Machine booted and ready!
-[app-02] GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
-stdin: is not a tty
- * Stopping VirtualBox Additions
-   ...done.
-stdin: is not a tty
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following packages were automatically installed and are no longer required:
-  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
-  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
-  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
-  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
-  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
-  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
-  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
-  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
-  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
-  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
-  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
-  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
-  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
-  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
-  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
-  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
-  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
-  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
-  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
-  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
-  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
-  manpages-dev notification-daemon sound-theme-freedesktop x11-common
-  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-  xserver-xorg-core
-Use 'apt-get autoremove' to remove them.
-The following packages will be REMOVED:
-  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
-0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
-After this operation, 12.1 MB disk space will be freed.
-(Reading database ... 62997 files and directories currently installed.)
-Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-
--------- Uninstall Beginning --------
-Module:  virtualbox-guest
-Version: 4.3.36
-Kernel:  3.13.0-98-generic (x86_64)
--------------------------------------
-
-Status: Before uninstall, this module version was ACTIVE on this kernel.
-
-vboxguest.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-
-vboxsf.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-
-vboxvideo.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-depmod....
-
-DKMS: uninstall completed.
-
-------------------------------
-Deleting module version: 4.3.36
-completely from the DKMS tree.
-------------------------------
-Done.
-Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-stdin: is not a tty
-Reading package lists...
-Building dependency tree...
-Reading state information...
-dkms is already the newest version.
-dkms set to manually installed.
-linux-headers-3.13.0-98-generic is already the newest version.
-linux-headers-3.13.0-98-generic set to manually installed.
-The following packages were automatically installed and are no longer required:
-  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
-  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
-  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
-  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
-  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
-  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
-  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
-  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
-  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
-  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
-  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
-  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
-  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
-  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
-  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
-  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
-  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
-  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
-  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
-  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-  xserver-xorg-core
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-Copy iso file /usr/share/virtualbox/VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
-stdin: is not a tty
-mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
-Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.36
-stdin: is not a tty
-Verifying archive integrity... All good.
-Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
-VirtualBox Guest Additions installer
-Copying additional installer modules ...
-Installing additional modules ...
-vboxadd.sh: Building Guest Additions kernel modules.
-vboxadd.sh: Starting the VirtualBox Guest Additions.
-
-Could not find the X.Org or XFree86 Window System, skipping.
-stdin: is not a tty
-
-Got different reports about installed GuestAdditions version:
-Virtualbox on your host claims:   4.3.36
-VBoxService inside the vm claims: 5.1.8
-Going on, assuming VBoxService is correct...
-Got different reports about installed GuestAdditions version:
-Virtualbox on your host claims:   4.3.36
-VBoxService inside the vm claims: 5.1.8
-Going on, assuming VBoxService is correct...
-==> app-02: Checking for guest additions in VM...
-    app-02: The guest additions on this VM do not match the installed version of
-    app-02: VirtualBox! In most cases this is fine, but in rare cases it can
-    app-02: prevent things such as shared folders from working properly. If you see
-    app-02: shared folder errors, please make sure the guest additions within the
-    app-02: virtual machine match the version of VirtualBox you have installed on
-    app-02: your host and reload your VM.
-    app-02: 
-    app-02: Guest Additions Version: 4.3.36
-    app-02: VirtualBox Version: 5.1
-==> app-02: Setting hostname...
-==> app-02: Configuring and enabling network interfaces...
-==> app-02: Mounting shared folders...
-    app-02: /vagrant => /home/minkuan/Documents/96-workspace/kube-scratch-lab
-==> app-02: Running provisioner: fix-no-tty (shell)...
-    app-02: Running: inline script
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: ipv6-forwarding
-==> app-02: net.ipv4.ip_forward = 1
-==> app-02: net.ipv6.conf.all.forwarding = 1
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: etcd
-==> app-02: + echo 'environments: 44.0.0.102, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380'
-==> app-02: environments: 44.0.0.102, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380
-==> app-02: + cd /opt/
-==> app-02: + mkdir /opt/etcd-v3.0.1
-==> app-02: + cp /vagrant/etcd-v3.0.1-linux-amd64.tar.gz /opt/
-==> app-02: + tar -zxf etcd-v3.0.1-linux-amd64.tar.gz -C etcd-v3.0.1 --strip-components=1
-==> app-02: + ln -s /opt/etcd-v3.0.1/etcd /usr/local/bin/etcd
-==> app-02: + ln -s /opt/etcd-v3.0.1/etcdctl /usr/local/bin/etcdctl
-==> app-02: + cp /vagrant/etcd.conf /etc/init/etcd.conf
-==> app-02: + sed -e s/MY_IP/44.0.0.102/g -e s/MY_CLUSTER_STATE/existing/g -e 's/MY_CLUSTER/app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380/g'
-==> app-02: + mkdir /var/lib/etcd
-==> app-02: + chown vagrant:vagrant /var/lib/etcd
-==> app-02: + mkdir /var/log/etcd
-==> app-02: + chown vagrant:vagrant /var/log/etcd
-==> app-02: + start etcd
-==> app-02: etcd start/running, process 5557
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: flannel
-==> app-02: + cd /opt/
-==> app-02: + mkdir /opt/flanneld-0.6.2
-==> app-02: + cp /vagrant/flannel-v0.6.2-linux-amd64.tar.gz /opt/
-==> app-02: + tar -zxf flannel-v0.6.2-linux-amd64.tar.gz -C flanneld-0.6.2
-==> app-02: + ln -s /opt/flanneld-0.6.2/flanneld /usr/local/bin/flanneld
-==> app-02: + cp /vagrant/flanneld.conf /etc/init/flanneld.conf
-==> app-02: + mkdir /var/log/flannel
-==> app-02: + chown vagrant:vagrant /var/log/flannel
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: flannel
-==> app-02: flanneld start/running, process 5609
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: etcd-add
-==> app-02: Added member named app-03 with ID b13aae94df26f6b4 to cluster
-==> app-02: ETCD_NAME="app-03"
-==> app-02: ETCD_INITIAL_CLUSTER="app-01=http://44.0.0.101:2380,app-03=http://44.0.0.103:2380,app-02=http://44.0.0.102:2380"
-==> app-02: ETCD_INITIAL_CLUSTER_STATE="existing"
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: docker
-==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-==> app-02: + apt-get update -qq
-==> app-02: + apt-get install -y docker.io
-==> app-02: Reading package lists...
-==> app-02: Building dependency tree...
-==> app-02: Reading state information...
-==> app-02: The following packages were automatically installed and are no longer required:
-==> app-02:   acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
-==> app-02:   fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
-==> app-02:   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
-==> app-02:   libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
-==> app-02:   libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
-==> app-02:   libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
-==> app-02:   libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
-==> app-02:   libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
-==> app-02:   libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-==> app-02:   libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-==> app-02:   libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
-==> app-02:   libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
-==> app-02:   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
-==> app-02:   libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
-==> app-02:   libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
-==> app-02:   libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
-==> app-02:   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
-==> app-02:   libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
-==> app-02:   libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
-==> app-02:   libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
-==> app-02:   libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
-==> app-02:   x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-==> app-02:   xserver-xorg-core
-==> app-02: Use 'apt-get autoremove' to remove them.
-==> app-02: The following extra packages will be installed:
-==> app-02:   aufs-tools cgroup-lite git git-man liberror-perl
-==> app-02: Suggested packages:
-==> app-02:   btrfs-tools debootstrap lxc rinse git-daemon-run git-daemon-sysvinit git-doc
-==> app-02:   git-el git-email git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki
-==> app-02:   git-svn
-==> app-02: The following NEW packages will be installed:
-==> app-02:   aufs-tools cgroup-lite docker.io git git-man liberror-perl
-==> app-02: 0 upgraded, 6 newly installed, 0 to remove and 15 not upgraded.
-==> app-02: Need to get 8,150 kB of archives.
-==> app-02: After this operation, 51.4 MB of additional disk space will be used.
-==> app-02: Get:1 http://mirrors.aliyun.com/ubuntu/ trusty/universe aufs-tools amd64 1:3.2+20130722-1.1 [92.3 kB]
-==> app-02: Get:2 http://mirrors.aliyun.com/ubuntu/ trusty-updates/universe docker.io amd64 1.6.2~dfsg1-1ubuntu4~14.04.1 [4,749 kB]
-==> app-02: Get:3 http://mirrors.aliyun.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
-==> app-02: Get:4 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
-==> app-02: Get:5 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
-==> app-02: Get:6 http://mirrors.aliyun.com/ubuntu/ trusty/main cgroup-lite all 1.9 [3,918 B]
-==> app-02: dpkg-preconfigure: unable to re-open stdin: No such file or directory
-==> app-02: Fetched 8,150 kB in 1min 32s (87.9 kB/s)
-==> app-02: Selecting previously unselected package aufs-tools.
-==> app-02: (Reading database ... 62722 files and directories currently installed.)
-==> app-02: Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1_amd64.deb ...
-==> app-02: Unpacking aufs-tools (1:3.2+20130722-1.1) ...
-==> app-02: Selecting previously unselected package docker.io.
-==> app-02: Preparing to unpack .../docker.io_1.6.2~dfsg1-1ubuntu4~14.04.1_amd64.deb ...
-==> app-02: Unpacking docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
-==> app-02: Selecting previously unselected package liberror-perl.
-==> app-02: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
-==> app-02: Unpacking liberror-perl (0.17-1.1) ...
-==> app-02: Selecting previously unselected package git-man.
-==> app-02: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
-==> app-02: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
-==> app-02: Selecting previously unselected package git.
-==> app-02: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
-==> app-02: Unpacking git (1:1.9.1-1ubuntu0.3) ...
-==> app-02: Selecting previously unselected package cgroup-lite.
-==> app-02: Preparing to unpack .../cgroup-lite_1.9_all.deb ...
-==> app-02: Unpacking cgroup-lite (1.9) ...
-==> app-02: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-==> app-02: Processing triggers for ureadahead (0.100.0-16) ...
-==> app-02: Setting up aufs-tools (1:3.2+20130722-1.1) ...
-==> app-02: Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
-==> app-02: Adding group `docker' (GID 113) ...
-==> app-02: Done.
-==> app-02: docker start/running, process 8253
-==> app-02: Setting up liberror-perl (0.17-1.1) ...
-==> app-02: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
-==> app-02: Setting up git (1:1.9.1-1ubuntu0.3) ...
-==> app-02: Setting up cgroup-lite (1.9) ...
-==> app-02: cgroup-lite start/running
-==> app-02: Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-==> app-02: Processing triggers for ureadahead (0.100.0-16) ...
-==> app-02: + service docker status
-==> app-02: docker start/running, process 8253
-==> app-02: + service docker stop
-==> app-02: docker stop/waiting
-==> app-02: + groupadd docker
-==> app-02: groupadd: group 'docker' already exists
-==> app-02: + usermod -aG docker vagrant
-==> app-02: + '[' -f /run/flannel/subnet.env ']'
-==> app-02: + . /run/flannel/subnet.env
-==> app-02: ++ FLANNEL_NETWORK=44.0.0.0/8
-==> app-02: ++ FLANNEL_SUBNET=44.1.40.1/24
-==> app-02: ++ FLANNEL_MTU=1472
-==> app-02: ++ FLANNEL_IPMASQ=false
-==> app-02: + sudo sed -i s/DOCKER_OPTS=/#DOCKER_OPTS=/g /etc/default/docker
-==> app-02: + sudo tee -a /etc/default/docker
-==> app-02: + echo 'DOCKER_OPTS="--bip=44.1.40.1/24 --mtu=1472"'
-==> app-02: DOCKER_OPTS="--bip=44.1.40.1/24 --mtu=1472"
-==> app-02: + service docker stop
-==> app-02: stop: Unknown instance: 
-==> app-02: + sudo ip link delete docker0
-==> app-02: Cannot find device "docker0"
-==> app-02: + service docker start
-==> app-02: docker start/running, process 8435
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: kubernetes
-==> app-02: + cd /opt/
-==> app-02: + mkdir /opt/kubernetes-1.5.0
-==> app-02: + tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
-==> app-02: + cd /opt/kubernetes-1.5.0/server/
-==> app-02: + tar -zxf kubernetes-server-linux-amd64.tar.gz
-==> app-02: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
-==> app-02: + echo 'alias kubectl='\''kubectl --server=44.0.0.103:8888'\'''
-==> app-02: + tee -a /root/.bashrc
-==> app-02: alias kubectl='kubectl --server=44.0.0.103:8888'
-==> app-02: + source /root/.bashrc
-==> app-02: ++ '[' -z '' ']'
-==> app-02: ++ return
-==> app-02: + mkdir /var/log/kubernetes
-==> app-02: + chown vagrant:vagrant /var/log/kubernetes
-==> app-02: + chown -R vagrant:vagrant /opt/kubernetes-1.5.0
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: kubernetes
-==> app-02: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubelet /usr/local/bin/kubelet
-==> app-02: + mkdir /var/lib/kubelet
-==> app-02: + cp /vagrant/.kubeconfig /var/lib/kubelet/kubeconfig
-==> app-02: + cp /vagrant/kubelet.conf /etc/init/kubelet.conf
-==> app-02: + env MY_IP=44.0.0.102
-==> app-02: XDG_SESSION_ID=2
-==> app-02: SHELL=/bin/bash
-==> app-02: TERM=vt100
-==> app-02: SSH_CLIENT=10.0.2.2 39192 22
-==> app-02: USER=root
-==> app-02: SUDO_USER=vagrant
-==> app-02: SUDO_UID=1000
-==> app-02: USERNAME=root
-==> app-02: MAIL=/var/mail/vagrant
-==> app-02: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-==> app-02: PWD=/home/vagrant
-==> app-02: LANG=en_US.UTF-8
-==> app-02: SHLVL=3
-==> app-02: HOME=/root
-==> app-02: SUDO_COMMAND=/bin/bash -l
-==> app-02: LOGNAME=root
-==> app-02: SSH_CONNECTION=10.0.2.2 39192 10.0.2.15 22
-==> app-02: XDG_RUNTIME_DIR=/run/user/1000
-==> app-02: SUDO_GID=1000
-==> app-02: IP=44.0.0.102
-==> app-02: _=/usr/bin/env
-==> app-02: MY_IP=44.0.0.102
-==> app-02: + start kubelet
-==> app-02: kubelet start/running, process 8570
-==> app-02: Running provisioner: shell...
-    app-02: Running: script: kubernetes
-==> app-02: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-proxy /usr/local/bin/kube-proxy
-==> app-02: + cp /vagrant/kube-proxy.conf /etc/init/kube-proxy.conf
-==> app-02: + start kube-proxy
-==> app-02: kube-proxy start/running, process 8603
-==> app-03: Importing base box 'ubuntu/trusty64'...
-==> app-03: Matching MAC address for NAT networking...
-==> app-03: Checking if box 'ubuntu/trusty64' is up to date...
-==> app-03: There was a problem while downloading the metadata for your box
-==> app-03: to check for updates. This is not an error, since it is usually due
-==> app-03: to temporary network problems. This is just a warning. The problem
-==> app-03: encountered was:
-==> app-03: 
-==> app-03: Couldn't resolve host 'atlas.hashicorp.com'
-==> app-03: 
-==> app-03: If you want to check for box updates, verify your network connection
-==> app-03: is valid and try again.
-==> app-03: Setting the name of the VM: kube-scratch-lab_app-03_1478015618199_98767
-==> app-03: Clearing any previously set forwarded ports...
-==> app-03: Fixed port collision for 22 => 2222. Now on port 2201.
-==> app-03: Clearing any previously set network interfaces...
-==> app-03: Preparing network interfaces based on configuration...
-    app-03: Adapter 1: nat
-    app-03: Adapter 2: hostonly
-==> app-03: Forwarding ports...
-    app-03: 22 (guest) => 2201 (host) (adapter 1)
-==> app-03: Running 'pre-boot' VM customizations...
-==> app-03: Booting VM...
-==> app-03: Waiting for machine to boot. This may take a few minutes...
-    app-03: SSH address: 127.0.0.1:2201
-    app-03: SSH username: vagrant
-    app-03: SSH auth method: private key
-    app-03: Warning: Remote connection disconnect. Retrying...
-    app-03: Warning: Remote connection disconnect. Retrying...
-    app-03: 
-    app-03: Vagrant insecure key detected. Vagrant will automatically replace
-    app-03: this with a newly generated keypair for better security.
-    app-03: 
-    app-03: Inserting generated public key within guest...
-    app-03: Removing insecure key from the guest if it's present...
-    app-03: Key inserted! Disconnecting and reconnecting using new SSH key...
-==> app-03: Machine booted and ready!
-[app-03] GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
-stdin: is not a tty
- * Stopping VirtualBox Additions
-   ...done.
-stdin: is not a tty
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following packages were automatically installed and are no longer required:
-  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
-  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
-  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
-  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
-  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
-  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
-  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
-  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
-  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
-  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
-  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
-  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
-  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
-  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
-  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
-  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
-  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
-  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
-  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
-  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
-  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
-  manpages-dev notification-daemon sound-theme-freedesktop x11-common
-  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-  xserver-xorg-core
-Use 'apt-get autoremove' to remove them.
-The following packages will be REMOVED:
-  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
-0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
-After this operation, 12.1 MB disk space will be freed.
-(Reading database ... 62997 files and directories currently installed.)
-Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-
--------- Uninstall Beginning --------
-Module:  virtualbox-guest
-Version: 4.3.36
-Kernel:  3.13.0-98-generic (x86_64)
--------------------------------------
-
-Status: Before uninstall, this module version was ACTIVE on this kernel.
-
-vboxguest.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-
-vboxsf.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-
-vboxvideo.ko:
- - Uninstallation
-   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
- - Original module
-   - No original module was found for this module on this kernel.
-   - Use the dkms install command to reinstall any previous module version.
-
-depmod....
-
-DKMS: uninstall completed.
-
-------------------------------
-Deleting module version: 4.3.36
-completely from the DKMS tree.
-------------------------------
-Done.
-Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
-Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-stdin: is not a tty
-Reading package lists...
-Building dependency tree...
-Reading state information...
-dkms is already the newest version.
-dkms set to manually installed.
-linux-headers-3.13.0-98-generic is already the newest version.
-linux-headers-3.13.0-98-generic set to manually installed.
-The following packages were automatically installed and are no longer required:
-  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
-  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
-  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
-  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
-  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
-  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
-  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
-  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
-  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
-  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
-  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
-  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
-  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
-  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
-  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
-  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
-  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
-  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
-  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
-  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-  xserver-xorg-core
-Use 'apt-get autoremove' to remove them.
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-Copy iso file /usr/share/virtualbox/VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
-stdin: is not a tty
-mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
-Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.36
-stdin: is not a tty
-Verifying archive integrity... All good.
-Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
-VirtualBox Guest Additions installer
-Copying additional installer modules ...
-Installing additional modules ...
-vboxadd.sh: Building Guest Additions kernel modules.
-vboxadd.sh: Starting the VirtualBox Guest Additions.
-
-Could not find the X.Org or XFree86 Window System, skipping.
-stdin: is not a tty
-
-Got different reports about installed GuestAdditions version:
-Virtualbox on your host claims:   4.3.36
-VBoxService inside the vm claims: 5.1.8
-Going on, assuming VBoxService is correct...
-Got different reports about installed GuestAdditions version:
-Virtualbox on your host claims:   4.3.36
-VBoxService inside the vm claims: 5.1.8
-Going on, assuming VBoxService is correct...
-==> app-03: Checking for guest additions in VM...
-    app-03: The guest additions on this VM do not match the installed version of
-    app-03: VirtualBox! In most cases this is fine, but in rare cases it can
-    app-03: prevent things such as shared folders from working properly. If you see
-    app-03: shared folder errors, please make sure the guest additions within the
-    app-03: virtual machine match the version of VirtualBox you have installed on
-    app-03: your host and reload your VM.
-    app-03: 
-    app-03: Guest Additions Version: 4.3.36
-    app-03: VirtualBox Version: 5.1
-==> app-03: Setting hostname...
-==> app-03: Configuring and enabling network interfaces...
-==> app-03: Mounting shared folders...
-    app-03: /vagrant => /home/minkuan/Documents/96-workspace/kube-scratch-lab
-==> app-03: Running provisioner: fix-no-tty (shell)...
-    app-03: Running: inline script
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: ipv6-forwarding
-==> app-03: net.ipv4.ip_forward = 1
-==> app-03: net.ipv6.conf.all.forwarding = 1
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: etcd
-==> app-03: + echo 'environments: 44.0.0.103, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380,app-03=http:\/\/44.0.0.103:2380'
-==> app-03: environments: 44.0.0.103, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380,app-03=http:\/\/44.0.0.103:2380
-==> app-03: + cd /opt/
-==> app-03: + mkdir /opt/etcd-v3.0.1
-==> app-03: + cp /vagrant/etcd-v3.0.1-linux-amd64.tar.gz /opt/
-==> app-03: + tar -zxf etcd-v3.0.1-linux-amd64.tar.gz -C etcd-v3.0.1 --strip-components=1
-==> app-03: + ln -s /opt/etcd-v3.0.1/etcd /usr/local/bin/etcd
-==> app-03: + ln -s /opt/etcd-v3.0.1/etcdctl /usr/local/bin/etcdctl
-==> app-03: + cp /vagrant/etcd.conf /etc/init/etcd.conf
-==> app-03: + sed -e s/MY_IP/44.0.0.103/g -e s/MY_CLUSTER_STATE/existing/g -e 's/MY_CLUSTER/app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380,app-03=http:\/\/44.0.0.103:2380/g'
-==> app-03: + mkdir /var/lib/etcd
-==> app-03: + chown vagrant:vagrant /var/lib/etcd
-==> app-03: + mkdir /var/log/etcd
-==> app-03: + chown vagrant:vagrant /var/log/etcd
-==> app-03: + start etcd
-==> app-03: etcd start/running, process 5571
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: flannel
-==> app-03: + cd /opt/
-==> app-03: + mkdir /opt/flanneld-0.6.2
-==> app-03: + cp /vagrant/flannel-v0.6.2-linux-amd64.tar.gz /opt/
-==> app-03: + tar -zxf flannel-v0.6.2-linux-amd64.tar.gz -C flanneld-0.6.2
-==> app-03: + ln -s /opt/flanneld-0.6.2/flanneld /usr/local/bin/flanneld
-==> app-03: + cp /vagrant/flanneld.conf /etc/init/flanneld.conf
-==> app-03: + mkdir /var/log/flannel
-==> app-03: + chown vagrant:vagrant /var/log/flannel
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: flannel
-==> app-03: flanneld start/running, process 5623
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: docker
-==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-==> app-03: + apt-get update -qq
-==> app-03: + apt-get install -y docker.io
-==> app-03: Reading package lists...
-==> app-03: Building dependency tree...
-==> app-03: 
-==> app-03: Reading state information...
-==> app-03: The following packages were automatically installed and are no longer required:
-==> app-03:   acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
-==> app-03:   fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
-==> app-03:   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
-==> app-03:   libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
-==> app-03:   libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
-==> app-03:   libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
-==> app-03:   libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
-==> app-03:   libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
-==> app-03:   libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
-==> app-03:   libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
-==> app-03:   libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
-==> app-03:   libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
-==> app-03:   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
-==> app-03:   libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
-==> app-03:   libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
-==> app-03:   libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
-==> app-03:   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
-==> app-03:   libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
-==> app-03:   libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
-==> app-03:   libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
-==> app-03:   libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
-==> app-03:   x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
-==> app-03:   xserver-xorg-core
-==> app-03: Use 'apt-get autoremove' to remove them.
-==> app-03: The following extra packages will be installed:
-==> app-03:   aufs-tools cgroup-lite git git-man liberror-perl
-==> app-03: Suggested packages:
-==> app-03:   btrfs-tools debootstrap lxc rinse git-daemon-run git-daemon-sysvinit git-doc
-==> app-03:   git-el git-email git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki
-==> app-03:   git-svn
-==> app-03: The following NEW packages will be installed:
-==> app-03:   aufs-tools cgroup-lite docker.io git git-man liberror-perl
-==> app-03: 0 upgraded, 6 newly installed, 0 to remove and 15 not upgraded.
-==> app-03: Need to get 8,150 kB of archives.
-==> app-03: After this operation, 51.4 MB of additional disk space will be used.
-==> app-03: Get:1 http://mirrors.aliyun.com/ubuntu/ trusty/universe aufs-tools amd64 1:3.2+20130722-1.1 [92.3 kB]
-==> app-03: Get:2 http://mirrors.aliyun.com/ubuntu/ trusty-updates/universe docker.io amd64 1.6.2~dfsg1-1ubuntu4~14.04.1 [4,749 kB]
-==> app-03: Get:3 http://mirrors.aliyun.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
-==> app-03: Get:4 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
-==> app-03: Get:5 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
-==> app-03: Get:6 http://mirrors.aliyun.com/ubuntu/ trusty/main cgroup-lite all 1.9 [3,918 B]
-==> app-03: dpkg-preconfigure: unable to re-open stdin: No such file or directory
-==> app-03: Fetched 8,150 kB in 25s (318 kB/s)
-==> app-03: Selecting previously unselected package aufs-tools.
-==> app-03: (Reading database ... 62722 files and directories currently installed.)
-==> app-03: Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1_amd64.deb ...
-==> app-03: Unpacking aufs-tools (1:3.2+20130722-1.1) ...
-==> app-03: Selecting previously unselected package docker.io.
-==> app-03: Preparing to unpack .../docker.io_1.6.2~dfsg1-1ubuntu4~14.04.1_amd64.deb ...
-==> app-03: Unpacking docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
-==> app-03: Selecting previously unselected package liberror-perl.
-==> app-03: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
-==> app-03: Unpacking liberror-perl (0.17-1.1) ...
-==> app-03: Selecting previously unselected package git-man.
-==> app-03: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
-==> app-03: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
-==> app-03: Selecting previously unselected package git.
-==> app-03: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
-==> app-03: Unpacking git (1:1.9.1-1ubuntu0.3) ...
-==> app-03: Selecting previously unselected package cgroup-lite.
-==> app-03: Preparing to unpack .../cgroup-lite_1.9_all.deb ...
-==> app-03: Unpacking cgroup-lite (1.9) ...
-==> app-03: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-==> app-03: Processing triggers for ureadahead (0.100.0-16) ...
-==> app-03: Setting up aufs-tools (1:3.2+20130722-1.1) ...
-==> app-03: Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
-==> app-03: Adding group `docker' (GID 113) ...
-==> app-03: Done.
-==> app-03: docker start/running, process 8258
-==> app-03: Setting up liberror-perl (0.17-1.1) ...
-==> app-03: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
-==> app-03: Setting up git (1:1.9.1-1ubuntu0.3) ...
-==> app-03: Setting up cgroup-lite (1.9) ...
-==> app-03: cgroup-lite start/running
-==> app-03: Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-==> app-03: Processing triggers for ureadahead (0.100.0-16) ...
-==> app-03: + service docker status
-==> app-03: docker start/running, process 8258
-==> app-03: + service docker stop
-==> app-03: docker stop/waiting
-==> app-03: + groupadd docker
-==> app-03: groupadd: group 'docker' already exists
-==> app-03: + usermod -aG docker vagrant
-==> app-03: + '[' -f /run/flannel/subnet.env ']'
-==> app-03: + . /run/flannel/subnet.env
-==> app-03: ++ FLANNEL_NETWORK=44.0.0.0/8
-==> app-03: ++ FLANNEL_SUBNET=44.1.20.1/24
-==> app-03: ++ FLANNEL_MTU=1472
-==> app-03: ++ FLANNEL_IPMASQ=false
-==> app-03: + sudo sed -i s/DOCKER_OPTS=/#DOCKER_OPTS=/g /etc/default/docker
-==> app-03: + sudo tee -a /etc/default/docker
-==> app-03: + echo 'DOCKER_OPTS="--bip=44.1.20.1/24 --mtu=1472"'
-==> app-03: DOCKER_OPTS="--bip=44.1.20.1/24 --mtu=1472"
-==> app-03: + service docker stop
-==> app-03: stop: Unknown instance: 
-==> app-03: + sudo ip link delete docker0
-==> app-03: Cannot find device "docker0"
-==> app-03: + service docker start
-==> app-03: docker start/running, process 8439
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: kubernetes
-==> app-03: + cd /opt/
-==> app-03: + mkdir /opt/kubernetes-1.5.0
-==> app-03: + tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
-==> app-03: + cd /opt/kubernetes-1.5.0/server/
-==> app-03: + tar -zxf kubernetes-server-linux-amd64.tar.gz
-==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
-==> app-03: + echo 'alias kubectl='\''kubectl --server=44.0.0.103:8888'\'''
-==> app-03: + tee -a /root/.bashrc
-==> app-03: alias kubectl='kubectl --server=44.0.0.103:8888'
-==> app-03: + source /root/.bashrc
-==> app-03: ++ '[' -z '' ']'
-==> app-03: ++ return
-==> app-03: + mkdir /var/log/kubernetes
-==> app-03: + chown vagrant:vagrant /var/log/kubernetes
-==> app-03: + chown -R vagrant:vagrant /opt/kubernetes-1.5.0
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: kubernetes
-==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubelet /usr/local/bin/kubelet
-==> app-03: + mkdir /var/lib/kubelet
-==> app-03: + cp /vagrant/.kubeconfig /var/lib/kubelet/kubeconfig
-==> app-03: + cp /vagrant/kubelet.conf /etc/init/kubelet.conf
-==> app-03: + env MY_IP=44.0.0.103
-==> app-03: XDG_SESSION_ID=2
-==> app-03: SHELL=/bin/bash
-==> app-03: TERM=vt100
-==> app-03: SSH_CLIENT=10.0.2.2 41302 22
-==> app-03: USER=root
-==> app-03: SUDO_USER=vagrant
-==> app-03: SUDO_UID=1000
-==> app-03: USERNAME=root
-==> app-03: MAIL=/var/mail/vagrant
-==> app-03: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-==> app-03: PWD=/home/vagrant
-==> app-03: LANG=en_US.UTF-8
-==> app-03: SHLVL=3
-==> app-03: HOME=/root
-==> app-03: SUDO_COMMAND=/bin/bash -l
-==> app-03: LOGNAME=root
-==> app-03: SSH_CONNECTION=10.0.2.2 41302 10.0.2.15 22
-==> app-03: XDG_RUNTIME_DIR=/run/user/1000
-==> app-03: SUDO_GID=1000
-==> app-03: IP=44.0.0.103
-==> app-03: _=/usr/bin/env
-==> app-03: MY_IP=44.0.0.103
-==> app-03: + start kubelet
-==> app-03: kubelet start/running, process 8574
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: kubernetes
-==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-proxy /usr/local/bin/kube-proxy
-==> app-03: + cp /vagrant/kube-proxy.conf /etc/init/kube-proxy.conf
-==> app-03: + start kube-proxy
-==> app-03: kube-proxy start/running, process 8607
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: kubernetes
-==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-apiserver /usr/local/bin/kube-apiserver
-==> app-03: + cp /vagrant/kube-apiserver.conf /etc/init/kube-apiserver.conf
-==> app-03: + start kube-apiserver
-==> app-03: kube-apiserver start/running, process 8652
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: kubernetes
-==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-controller-manager /usr/local/bin/kube-controller-manager
-==> app-03: + cp /vagrant/kube-controller-manager.conf /etc/init/kube-controller-manager.conf
-==> app-03: + start kube-controller-manager
-==> app-03: kube-controller-manager start/running, process 8702
-==> app-03: Running provisioner: shell...
-    app-03: Running: script: kubernetes
-==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-scheduler /usr/local/bin/kube-scheduler
-==> app-03: + cp /vagrant/kube-scheduler.conf /etc/init/kube-scheduler.conf
-==> app-03: + start kube-scheduler
-==> app-03: kube-scheduler start/running, process 8728
-2016年 11月 01日 星期二 23:57:34 CST
+		minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ date && vagrant up && date
+		2016年 11月 01日 星期二 23:40:02 CST
+		Bringing machine 'app-01' up with 'virtualbox' provider...
+		Bringing machine 'app-02' up with 'virtualbox' provider...
+		Bringing machine 'app-03' up with 'virtualbox' provider...
+		==> app-01: Importing base box 'ubuntu/trusty64'...
+		==> app-01: Matching MAC address for NAT networking...
+		==> app-01: Checking if box 'ubuntu/trusty64' is up to date...
+		==> app-01: There was a problem while downloading the metadata for your box
+		==> app-01: to check for updates. This is not an error, since it is usually due
+		==> app-01: to temporary network problems. This is just a warning. The problem
+		==> app-01: encountered was:
+		==> app-01: 
+		==> app-01: Couldn't resolve host 'atlas.hashicorp.com'
+		==> app-01: 
+		==> app-01: If you want to check for box updates, verify your network connection
+		==> app-01: is valid and try again.
+		==> app-01: Setting the name of the VM: kube-scratch-lab_app-01_1478014845397_71312
+		==> app-01: Clearing any previously set forwarded ports...
+		==> app-01: Clearing any previously set network interfaces...
+		==> app-01: Preparing network interfaces based on configuration...
+		    app-01: Adapter 1: nat
+		    app-01: Adapter 2: hostonly
+		==> app-01: Forwarding ports...
+		    app-01: 22 (guest) => 2222 (host) (adapter 1)
+		==> app-01: Running 'pre-boot' VM customizations...
+		==> app-01: Booting VM...
+		==> app-01: Waiting for machine to boot. This may take a few minutes...
+		    app-01: SSH address: 127.0.0.1:2222
+		    app-01: SSH username: vagrant
+		    app-01: SSH auth method: private key
+		    app-01: Warning: Remote connection disconnect. Retrying...
+		    app-01: 
+		    app-01: Vagrant insecure key detected. Vagrant will automatically replace
+		    app-01: this with a newly generated keypair for better security.
+		    app-01: 
+		    app-01: Inserting generated public key within guest...
+		    app-01: Removing insecure key from the guest if it's present...
+		    app-01: Key inserted! Disconnecting and reconnecting using new SSH key...
+		==> app-01: Machine booted and ready!
+		[app-01] GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
+		stdin: is not a tty
+		 * Stopping VirtualBox Additions
+		   ...done.
+		stdin: is not a tty
+		Reading package lists...
+		Building dependency tree...
+		Reading state information...
+		The following packages were automatically installed and are no longer required:
+		  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
+		  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
+		  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
+		  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
+		  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
+		  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
+		  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
+		  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
+		  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
+		  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
+		  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
+		  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
+		  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
+		  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
+		  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
+		  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
+		  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
+		  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
+		  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
+		  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
+		  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
+		  manpages-dev notification-daemon sound-theme-freedesktop x11-common
+		  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		  xserver-xorg-core
+		Use 'apt-get autoremove' to remove them.
+		The following packages will be REMOVED:
+		  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
+		0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
+		After this operation, 12.1 MB disk space will be freed.
+		(Reading database ... 62997 files and directories currently installed.)
+		Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		-------- Uninstall Beginning --------
+		Module:  virtualbox-guest
+		Version: 4.3.36
+		Kernel:  3.13.0-98-generic (x86_64)
+		-------------------------------------
+		Status: Before uninstall, this module version was ACTIVE on this kernel.
+		vboxguest.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		vboxsf.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		vboxvideo.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		depmod....
+		DKMS: uninstall completed.
+		------------------------------
+		Deleting module version: 4.3.36
+		completely from the DKMS tree.
+		------------------------------
+		Done.
+		Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+		Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+		stdin: is not a tty
+		Reading package lists...
+		Building dependency tree...
+		Reading state information...
+		dkms is already the newest version.
+		dkms set to manually installed.
+		linux-headers-3.13.0-98-generic is already the newest version.
+		linux-headers-3.13.0-98-generic set to manually installed.
+		The following packages were automatically installed and are no longer required:
+		  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+		  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+		  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+		  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+		  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+		  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+		  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+		  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+		  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+		  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+		  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+		  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+		  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+		  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+		  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+		  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+		  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+		  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+		  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+		  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		  xserver-xorg-core
+		Use 'apt-get autoremove' to remove them.
+		0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+		Copy iso file /usr/share/virtualbox/VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
+		stdin: is not a tty
+		mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
+		Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.36
+		stdin: is not a tty
+		Verifying archive integrity... All good.
+		Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
+		VirtualBox Guest Additions installer
+		Copying additional installer modules ...
+		Installing additional modules ...
+		vboxadd.sh: Building Guest Additions kernel modules.
+		vboxadd.sh: Starting the VirtualBox Guest Additions.
+		Could not find the X.Org or XFree86 Window System, skipping.
+		stdin: is not a tty
+		Got different reports about installed GuestAdditions version:
+		Virtualbox on your host claims:   4.3.36
+		VBoxService inside the vm claims: 5.1.8
+		Going on, assuming VBoxService is correct...
+		Got different reports about installed GuestAdditions version:
+		Virtualbox on your host claims:   4.3.36
+		VBoxService inside the vm claims: 5.1.8
+		Going on, assuming VBoxService is correct...
+		==> app-01: Checking for guest additions in VM...
+		    app-01: The guest additions on this VM do not match the installed version of
+		    app-01: VirtualBox! In most cases this is fine, but in rare cases it can
+		    app-01: prevent things such as shared folders from working properly. If you see
+		    app-01: shared folder errors, please make sure the guest additions within the
+		    app-01: virtual machine match the version of VirtualBox you have installed on
+		    app-01: your host and reload your VM.
+		    app-01: 
+		    app-01: Guest Additions Version: 4.3.36
+		    app-01: VirtualBox Version: 5.1
+		==> app-01: Setting hostname...
+		==> app-01: Configuring and enabling network interfaces...
+		==> app-01: Mounting shared folders...
+		    app-01: /vagrant => /home/minkuan/Documents/96-workspace/kube-scratch-lab
+		==> app-01: Running provisioner: fix-no-tty (shell)...
+		    app-01: Running: inline script
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: ipv6-forwarding
+		==> app-01: net.ipv4.ip_forward = 1
+		==> app-01: net.ipv6.conf.all.forwarding = 1
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: etcd
+		==> app-01: + echo 'environments: 44.0.0.101, new, app-01=http:\/\/44.0.0.101:2380'
+		==> app-01: environments: 44.0.0.101, new, app-01=http:\/\/44.0.0.101:2380
+		==> app-01: + cd /opt/
+		==> app-01: + mkdir /opt/etcd-v3.0.1
+		==> app-01: + cp /vagrant/etcd-v3.0.1-linux-amd64.tar.gz /opt/
+		==> app-01: + tar -zxf etcd-v3.0.1-linux-amd64.tar.gz -C etcd-v3.0.1 --strip-components=1
+		==> app-01: + ln -s /opt/etcd-v3.0.1/etcd /usr/local/bin/etcd
+		==> app-01: + ln -s /opt/etcd-v3.0.1/etcdctl /usr/local/bin/etcdctl
+		==> app-01: + cp /vagrant/etcd.conf /etc/init/etcd.conf
+		==> app-01: + sed -e s/MY_IP/44.0.0.101/g -e s/MY_CLUSTER_STATE/new/g -e 's/MY_CLUSTER/app-01=http:\/\/44.0.0.101:2380/g'
+		==> app-01: + mkdir /var/lib/etcd
+		==> app-01: + chown vagrant:vagrant /var/lib/etcd
+		==> app-01: + mkdir /var/log/etcd
+		==> app-01: + chown vagrant:vagrant /var/log/etcd
+		==> app-01: + start etcd
+		==> app-01: etcd start/running, process 5557
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: flannel
+		==> app-01: + cd /opt/
+		==> app-01: + mkdir /opt/flanneld-0.6.2
+		==> app-01: + cp /vagrant/flannel-v0.6.2-linux-amd64.tar.gz /opt/
+		==> app-01: + tar -zxf flannel-v0.6.2-linux-amd64.tar.gz -C flanneld-0.6.2
+		==> app-01: + ln -s /opt/flanneld-0.6.2/flanneld /usr/local/bin/flanneld
+		==> app-01: + cp /vagrant/flanneld.conf /etc/init/flanneld.conf
+		==> app-01: + mkdir /var/log/flannel
+		==> app-01: + chown vagrant:vagrant /var/log/flannel
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: flannel-config
+		==> app-01: {
+		==> app-01:   "Network": "44.0.0.0/8",
+		==> app-01:   "SubnetLen": 24,
+		==> app-01:   "SubnetMin": "44.1.0.0",
+		==> app-01:   "SubnetMax": "44.10.0.0",
+		==> app-01:   "Backend": {
+		==> app-01:     "Type": "udp"
+		==> app-01:   }
+		==> app-01: }
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: flannel
+		==> app-01: flanneld start/running, process 5637
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: etcd-add
+		==> app-01: Added member named app-02 with ID b485eaaa2fd229ff to cluster
+		==> app-01: 
+		==> app-01: ETCD_NAME="app-02"
+		==> app-01: ETCD_INITIAL_CLUSTER="app-01=http://44.0.0.101:2380,app-02=http://44.0.0.102:2380"
+		==> app-01: ETCD_INITIAL_CLUSTER_STATE="existing"
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: docker
+		==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+		==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+		==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+		==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+		==> app-01: deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+		==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+		==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+		==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+		==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+		==> app-01: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+		==> app-01: + apt-get update -qq
+		==> app-01: + apt-get install -y docker.io
+		==> app-01: Reading package lists...
+		==> app-01: Building dependency tree...
+		==> app-01: Reading state information...
+		==> app-01: The following packages were automatically installed and are no longer required:
+		==> app-01:   acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+		==> app-01:   fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+		==> app-01:   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+		==> app-01:   libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+		==> app-01:   libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+		==> app-01:   libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+		==> app-01:   libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+		==> app-01:   libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+		==> app-01:   libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		==> app-01:   libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		==> app-01:   libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+		==> app-01:   libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+		==> app-01:   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+		==> app-01:   libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+		==> app-01:   libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+		==> app-01:   libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+		==> app-01:   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+		==> app-01:   libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+		==> app-01:   libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+		==> app-01:   libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+		==> app-01:   libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+		==> app-01:   x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		==> app-01:   xserver-xorg-core
+		==> app-01: Use 'apt-get autoremove' to remove them.
+		==> app-01: The following extra packages will be installed:
+		==> app-01:   aufs-tools cgroup-lite git git-man liberror-perl
+		==> app-01: Suggested packages:
+		==> app-01:   btrfs-tools debootstrap lxc rinse git-daemon-run git-daemon-sysvinit git-doc
+		==> app-01:   git-el git-email git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki
+		==> app-01:   git-svn
+		==> app-01: The following NEW packages will be installed:
+		==> app-01:   aufs-tools cgroup-lite docker.io git git-man liberror-perl
+		==> app-01: 0 upgraded, 6 newly installed, 0 to remove and 15 not upgraded.
+		==> app-01: Need to get 8,150 kB of archives.
+		==> app-01: After this operation, 51.4 MB of additional disk space will be used.
+		==> app-01: Get:1 http://mirrors.aliyun.com/ubuntu/ trusty/universe aufs-tools amd64 1:3.2+20130722-1.1 [92.3 kB]
+		==> app-01: Get:2 http://mirrors.aliyun.com/ubuntu/ trusty-updates/universe docker.io amd64 1.6.2~dfsg1-1ubuntu4~14.04.1 [4,749 kB]
+		==> app-01: Get:3 http://mirrors.aliyun.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+		==> app-01: Get:4 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
+		==> app-01: Get:5 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
+		==> app-01: Get:6 http://mirrors.aliyun.com/ubuntu/ trusty/main cgroup-lite all 1.9 [3,918 B]
+		==> app-01: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+		==> app-01: Fetched 8,150 kB in 2min 39s (51.3 kB/s)
+		==> app-01: Selecting previously unselected package aufs-tools.
+		==> app-01: (Reading database ... 62722 files and directories currently installed.)
+		==> app-01: Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1_amd64.deb ...
+		==> app-01: Unpacking aufs-tools (1:3.2+20130722-1.1) ...
+		==> app-01: Selecting previously unselected package docker.io.
+		==> app-01: Preparing to unpack .../docker.io_1.6.2~dfsg1-1ubuntu4~14.04.1_amd64.deb ...
+		==> app-01: Unpacking docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
+		==> app-01: Selecting previously unselected package liberror-perl.
+		==> app-01: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+		==> app-01: Unpacking liberror-perl (0.17-1.1) ...
+		==> app-01: Selecting previously unselected package git-man.
+		==> app-01: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
+		==> app-01: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
+		==> app-01: Selecting previously unselected package git.
+		==> app-01: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
+		==> app-01: Unpacking git (1:1.9.1-1ubuntu0.3) ...
+		==> app-01: Selecting previously unselected package cgroup-lite.
+		==> app-01: Preparing to unpack .../cgroup-lite_1.9_all.deb ...
+		==> app-01: Unpacking cgroup-lite (1.9) ...
+		==> app-01: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+		==> app-01: Processing triggers for ureadahead (0.100.0-16) ...
+		==> app-01: Setting up aufs-tools (1:3.2+20130722-1.1) ...
+		==> app-01: Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
+		==> app-01: Adding group `docker' (GID 113) ...
+		==> app-01: Done.
+		==> app-01: docker start/running, process 8280
+		==> app-01: Setting up liberror-perl (0.17-1.1) ...
+		==> app-01: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
+		==> app-01: Setting up git (1:1.9.1-1ubuntu0.3) ...
+		==> app-01: Setting up cgroup-lite (1.9) ...
+		==> app-01: cgroup-lite start/running
+		==> app-01: Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+		==> app-01: Processing triggers for ureadahead (0.100.0-16) ...
+		==> app-01: + service docker status
+		==> app-01: docker start/running, process 8280
+		==> app-01: + service docker stop
+		==> app-01: docker stop/waiting
+		==> app-01: + groupadd docker
+		==> app-01: groupadd: group 'docker' already exists
+		==> app-01: + usermod -aG docker vagrant
+		==> app-01: + '[' -f /run/flannel/subnet.env ']'
+		==> app-01: + . /run/flannel/subnet.env
+		==> app-01: ++ FLANNEL_NETWORK=44.0.0.0/8
+		==> app-01: ++ FLANNEL_SUBNET=44.1.38.1/24
+		==> app-01: ++ FLANNEL_MTU=1472
+		==> app-01: ++ FLANNEL_IPMASQ=false
+		==> app-01: + sudo sed -i s/DOCKER_OPTS=/#DOCKER_OPTS=/g /etc/default/docker
+		==> app-01: + sudo tee -a /etc/default/docker
+		==> app-01: + echo 'DOCKER_OPTS="--bip=44.1.38.1/24 --mtu=1472"'
+		==> app-01: DOCKER_OPTS="--bip=44.1.38.1/24 --mtu=1472"
+		==> app-01: + service docker stop
+		==> app-01: stop: Unknown instance: 
+		==> app-01: + sudo ip link delete docker0
+		==> app-01: Cannot find device "docker0"
+		==> app-01: + service docker start
+		==> app-01: docker start/running, process 8463
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: kubernetes
+		==> app-01: + cd /opt/
+		==> app-01: + mkdir /opt/kubernetes-1.5.0
+		==> app-01: + tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
+		==> app-01: + cd /opt/kubernetes-1.5.0/server/
+		==> app-01: + tar -zxf kubernetes-server-linux-amd64.tar.gz
+		==> app-01: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
+		==> app-01: + echo 'alias kubectl='\''kubectl --server=44.0.0.103:8888'\'''
+		==> app-01: + tee -a /root/.bashrc
+		==> app-01: alias kubectl='kubectl --server=44.0.0.103:8888'
+		==> app-01: + source /root/.bashrc
+		==> app-01: ++ '[' -z '' ']'
+		==> app-01: ++ return
+		==> app-01: + mkdir /var/log/kubernetes
+		==> app-01: + chown vagrant:vagrant /var/log/kubernetes
+		==> app-01: + chown -R vagrant:vagrant /opt/kubernetes-1.5.0
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: kubernetes
+		==> app-01: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubelet /usr/local/bin/kubelet
+		==> app-01: + mkdir /var/lib/kubelet
+		==> app-01: + cp /vagrant/.kubeconfig /var/lib/kubelet/kubeconfig
+		==> app-01: + cp /vagrant/kubelet.conf /etc/init/kubelet.conf
+		==> app-01: + env MY_IP=44.0.0.101
+		==> app-01: XDG_SESSION_ID=2
+		==> app-01: SHELL=/bin/bash
+		==> app-01: TERM=vt100
+		==> app-01: SSH_CLIENT=10.0.2.2 58102 22
+		==> app-01: USER=root
+		==> app-01: SUDO_USER=vagrant
+		==> app-01: SUDO_UID=1000
+		==> app-01: USERNAME=root
+		==> app-01: MAIL=/var/mail/vagrant
+		==> app-01: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+		==> app-01: PWD=/home/vagrant
+		==> app-01: LANG=en_US.UTF-8
+		==> app-01: SHLVL=3
+		==> app-01: HOME=/root
+		==> app-01: SUDO_COMMAND=/bin/bash -l
+		==> app-01: LOGNAME=root
+		==> app-01: SSH_CONNECTION=10.0.2.2 58102 10.0.2.15 22
+		==> app-01: XDG_RUNTIME_DIR=/run/user/1000
+		==> app-01: SUDO_GID=1000
+		==> app-01: IP=44.0.0.101
+		==> app-01: _=/usr/bin/env
+		==> app-01: MY_IP=44.0.0.101
+		==> app-01: + start kubelet
+		==> app-01: kubelet start/running, process 8598
+		==> app-01: Running provisioner: shell...
+		    app-01: Running: script: kubernetes
+		==> app-01: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-proxy /usr/local/bin/kube-proxy
+		==> app-01: + cp /vagrant/kube-proxy.conf /etc/init/kube-proxy.conf
+		==> app-01: + start kube-proxy
+		==> app-01: kube-proxy start/running, process 8631
+		==> app-02: Importing base box 'ubuntu/trusty64'...
+		==> app-02: Matching MAC address for NAT networking...
+		==> app-02: Checking if box 'ubuntu/trusty64' is up to date...
+		==> app-02: There was a problem while downloading the metadata for your box
+		==> app-02: to check for updates. This is not an error, since it is usually due
+		==> app-02: to temporary network problems. This is just a warning. The problem
+		==> app-02: encountered was:
+		==> app-02: 
+		==> app-02: Couldn't resolve host 'atlas.hashicorp.com'
+		==> app-02: 
+		==> app-02: If you want to check for box updates, verify your network connection
+		==> app-02: is valid and try again.
+		==> app-02: Setting the name of the VM: kube-scratch-lab_app-02_1478015264574_89170
+		==> app-02: Clearing any previously set forwarded ports...
+		==> app-02: Fixed port collision for 22 => 2222. Now on port 2200.
+		==> app-02: Clearing any previously set network interfaces...
+		==> app-02: Preparing network interfaces based on configuration...
+		    app-02: Adapter 1: nat
+		    app-02: Adapter 2: hostonly
+		==> app-02: Forwarding ports...
+		    app-02: 22 (guest) => 2200 (host) (adapter 1)
+		==> app-02: Running 'pre-boot' VM customizations...
+		==> app-02: Booting VM...
+		==> app-02: Waiting for machine to boot. This may take a few minutes...
+		    app-02: SSH address: 127.0.0.1:2200
+		    app-02: SSH username: vagrant
+		    app-02: SSH auth method: private key
+		    app-02: Warning: Remote connection disconnect. Retrying...
+		    app-02: Warning: Remote connection disconnect. Retrying...
+		    app-02: 
+		    app-02: Vagrant insecure key detected. Vagrant will automatically replace
+		    app-02: this with a newly generated keypair for better security.
+		    app-02: 
+		    app-02: Inserting generated public key within guest...
+		    app-02: Removing insecure key from the guest if it's present...
+		    app-02: Key inserted! Disconnecting and reconnecting using new SSH key...
+		==> app-02: Machine booted and ready!
+		[app-02] GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
+		stdin: is not a tty
+		 * Stopping VirtualBox Additions
+		   ...done.
+		stdin: is not a tty
+		Reading package lists...
+		Building dependency tree...
+		Reading state information...
+		The following packages were automatically installed and are no longer required:
+		  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
+		  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
+		  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
+		  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
+		  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
+		  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
+		  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
+		  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
+		  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
+		  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
+		  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
+		  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
+		  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
+		  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
+		  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
+		  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
+		  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
+		  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
+		  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
+		  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
+		  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
+		  manpages-dev notification-daemon sound-theme-freedesktop x11-common
+		  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		  xserver-xorg-core
+		Use 'apt-get autoremove' to remove them.
+		The following packages will be REMOVED:
+		  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
+		0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
+		After this operation, 12.1 MB disk space will be freed.
+		(Reading database ... 62997 files and directories currently installed.)
+		Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		-------- Uninstall Beginning --------
+		Module:  virtualbox-guest
+		Version: 4.3.36
+		Kernel:  3.13.0-98-generic (x86_64)
+		-------------------------------------
+		Status: Before uninstall, this module version was ACTIVE on this kernel.
+		vboxguest.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		vboxsf.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		vboxvideo.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		depmod....
+		DKMS: uninstall completed.
+		------------------------------
+		Deleting module version: 4.3.36
+		completely from the DKMS tree.
+		------------------------------
+		Done.
+		Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+		Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+		stdin: is not a tty
+		Reading package lists...
+		Building dependency tree...
+		Reading state information...
+		dkms is already the newest version.
+		dkms set to manually installed.
+		linux-headers-3.13.0-98-generic is already the newest version.
+		linux-headers-3.13.0-98-generic set to manually installed.
+		The following packages were automatically installed and are no longer required:
+		  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+		  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+		  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+		  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+		  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+		  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+		  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+		  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+		  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+		  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+		  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+		  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+		  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+		  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+		  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+		  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+		  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+		  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+		  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+		  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		  xserver-xorg-core
+		Use 'apt-get autoremove' to remove them.
+		0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+		Copy iso file /usr/share/virtualbox/VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
+		stdin: is not a tty
+		mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
+		Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.36
+		stdin: is not a tty
+		Verifying archive integrity... All good.
+		Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
+		VirtualBox Guest Additions installer
+		Copying additional installer modules ...
+		Installing additional modules ...
+		vboxadd.sh: Building Guest Additions kernel modules.
+		vboxadd.sh: Starting the VirtualBox Guest Additions.
+		
+		Could not find the X.Org or XFree86 Window System, skipping.
+		stdin: is not a tty
+		
+		Got different reports about installed GuestAdditions version:
+		Virtualbox on your host claims:   4.3.36
+		VBoxService inside the vm claims: 5.1.8
+		Going on, assuming VBoxService is correct...
+		Got different reports about installed GuestAdditions version:
+		Virtualbox on your host claims:   4.3.36
+		VBoxService inside the vm claims: 5.1.8
+		Going on, assuming VBoxService is correct...
+		==> app-02: Checking for guest additions in VM...
+		    app-02: The guest additions on this VM do not match the installed version of
+		    app-02: VirtualBox! In most cases this is fine, but in rare cases it can
+		    app-02: prevent things such as shared folders from working properly. If you see
+		    app-02: shared folder errors, please make sure the guest additions within the
+		    app-02: virtual machine match the version of VirtualBox you have installed on
+		    app-02: your host and reload your VM.
+		    app-02: 
+		    app-02: Guest Additions Version: 4.3.36
+		    app-02: VirtualBox Version: 5.1
+		==> app-02: Setting hostname...
+		==> app-02: Configuring and enabling network interfaces...
+		==> app-02: Mounting shared folders...
+		    app-02: /vagrant => /home/minkuan/Documents/96-workspace/kube-scratch-lab
+		==> app-02: Running provisioner: fix-no-tty (shell)...
+		    app-02: Running: inline script
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: ipv6-forwarding
+		==> app-02: net.ipv4.ip_forward = 1
+		==> app-02: net.ipv6.conf.all.forwarding = 1
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: etcd
+		==> app-02: + echo 'environments: 44.0.0.102, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380'
+		==> app-02: environments: 44.0.0.102, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380
+		==> app-02: + cd /opt/
+		==> app-02: + mkdir /opt/etcd-v3.0.1
+		==> app-02: + cp /vagrant/etcd-v3.0.1-linux-amd64.tar.gz /opt/
+		==> app-02: + tar -zxf etcd-v3.0.1-linux-amd64.tar.gz -C etcd-v3.0.1 --strip-components=1
+		==> app-02: + ln -s /opt/etcd-v3.0.1/etcd /usr/local/bin/etcd
+		==> app-02: + ln -s /opt/etcd-v3.0.1/etcdctl /usr/local/bin/etcdctl
+		==> app-02: + cp /vagrant/etcd.conf /etc/init/etcd.conf
+		==> app-02: + sed -e s/MY_IP/44.0.0.102/g -e s/MY_CLUSTER_STATE/existing/g -e 's/MY_CLUSTER/app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380/g'
+		==> app-02: + mkdir /var/lib/etcd
+		==> app-02: + chown vagrant:vagrant /var/lib/etcd
+		==> app-02: + mkdir /var/log/etcd
+		==> app-02: + chown vagrant:vagrant /var/log/etcd
+		==> app-02: + start etcd
+		==> app-02: etcd start/running, process 5557
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: flannel
+		==> app-02: + cd /opt/
+		==> app-02: + mkdir /opt/flanneld-0.6.2
+		==> app-02: + cp /vagrant/flannel-v0.6.2-linux-amd64.tar.gz /opt/
+		==> app-02: + tar -zxf flannel-v0.6.2-linux-amd64.tar.gz -C flanneld-0.6.2
+		==> app-02: + ln -s /opt/flanneld-0.6.2/flanneld /usr/local/bin/flanneld
+		==> app-02: + cp /vagrant/flanneld.conf /etc/init/flanneld.conf
+		==> app-02: + mkdir /var/log/flannel
+		==> app-02: + chown vagrant:vagrant /var/log/flannel
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: flannel
+		==> app-02: flanneld start/running, process 5609
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: etcd-add
+		==> app-02: Added member named app-03 with ID b13aae94df26f6b4 to cluster
+		==> app-02: ETCD_NAME="app-03"
+		==> app-02: ETCD_INITIAL_CLUSTER="app-01=http://44.0.0.101:2380,app-03=http://44.0.0.103:2380,app-02=http://44.0.0.102:2380"
+		==> app-02: ETCD_INITIAL_CLUSTER_STATE="existing"
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: docker
+		==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+		==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+		==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+		==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+		==> app-02: deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+		==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+		==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+		==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+		==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+		==> app-02: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+		==> app-02: + apt-get update -qq
+		==> app-02: + apt-get install -y docker.io
+		==> app-02: Reading package lists...
+		==> app-02: Building dependency tree...
+		==> app-02: Reading state information...
+		==> app-02: The following packages were automatically installed and are no longer required:
+		==> app-02:   acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+		==> app-02:   fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+		==> app-02:   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+		==> app-02:   libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+		==> app-02:   libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+		==> app-02:   libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+		==> app-02:   libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+		==> app-02:   libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+		==> app-02:   libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		==> app-02:   libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		==> app-02:   libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+		==> app-02:   libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+		==> app-02:   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+		==> app-02:   libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+		==> app-02:   libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+		==> app-02:   libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+		==> app-02:   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+		==> app-02:   libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+		==> app-02:   libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+		==> app-02:   libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+		==> app-02:   libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+		==> app-02:   x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		==> app-02:   xserver-xorg-core
+		==> app-02: Use 'apt-get autoremove' to remove them.
+		==> app-02: The following extra packages will be installed:
+		==> app-02:   aufs-tools cgroup-lite git git-man liberror-perl
+		==> app-02: Suggested packages:
+		==> app-02:   btrfs-tools debootstrap lxc rinse git-daemon-run git-daemon-sysvinit git-doc
+		==> app-02:   git-el git-email git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki
+		==> app-02:   git-svn
+		==> app-02: The following NEW packages will be installed:
+		==> app-02:   aufs-tools cgroup-lite docker.io git git-man liberror-perl
+		==> app-02: 0 upgraded, 6 newly installed, 0 to remove and 15 not upgraded.
+		==> app-02: Need to get 8,150 kB of archives.
+		==> app-02: After this operation, 51.4 MB of additional disk space will be used.
+		==> app-02: Get:1 http://mirrors.aliyun.com/ubuntu/ trusty/universe aufs-tools amd64 1:3.2+20130722-1.1 [92.3 kB]
+		==> app-02: Get:2 http://mirrors.aliyun.com/ubuntu/ trusty-updates/universe docker.io amd64 1.6.2~dfsg1-1ubuntu4~14.04.1 [4,749 kB]
+		==> app-02: Get:3 http://mirrors.aliyun.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+		==> app-02: Get:4 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
+		==> app-02: Get:5 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
+		==> app-02: Get:6 http://mirrors.aliyun.com/ubuntu/ trusty/main cgroup-lite all 1.9 [3,918 B]
+		==> app-02: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+		==> app-02: Fetched 8,150 kB in 1min 32s (87.9 kB/s)
+		==> app-02: Selecting previously unselected package aufs-tools.
+		==> app-02: (Reading database ... 62722 files and directories currently installed.)
+		==> app-02: Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1_amd64.deb ...
+		==> app-02: Unpacking aufs-tools (1:3.2+20130722-1.1) ...
+		==> app-02: Selecting previously unselected package docker.io.
+		==> app-02: Preparing to unpack .../docker.io_1.6.2~dfsg1-1ubuntu4~14.04.1_amd64.deb ...
+		==> app-02: Unpacking docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
+		==> app-02: Selecting previously unselected package liberror-perl.
+		==> app-02: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+		==> app-02: Unpacking liberror-perl (0.17-1.1) ...
+		==> app-02: Selecting previously unselected package git-man.
+		==> app-02: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
+		==> app-02: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
+		==> app-02: Selecting previously unselected package git.
+		==> app-02: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
+		==> app-02: Unpacking git (1:1.9.1-1ubuntu0.3) ...
+		==> app-02: Selecting previously unselected package cgroup-lite.
+		==> app-02: Preparing to unpack .../cgroup-lite_1.9_all.deb ...
+		==> app-02: Unpacking cgroup-lite (1.9) ...
+		==> app-02: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+		==> app-02: Processing triggers for ureadahead (0.100.0-16) ...
+		==> app-02: Setting up aufs-tools (1:3.2+20130722-1.1) ...
+		==> app-02: Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
+		==> app-02: Adding group `docker' (GID 113) ...
+		==> app-02: Done.
+		==> app-02: docker start/running, process 8253
+		==> app-02: Setting up liberror-perl (0.17-1.1) ...
+		==> app-02: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
+		==> app-02: Setting up git (1:1.9.1-1ubuntu0.3) ...
+		==> app-02: Setting up cgroup-lite (1.9) ...
+		==> app-02: cgroup-lite start/running
+		==> app-02: Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+		==> app-02: Processing triggers for ureadahead (0.100.0-16) ...
+		==> app-02: + service docker status
+		==> app-02: docker start/running, process 8253
+		==> app-02: + service docker stop
+		==> app-02: docker stop/waiting
+		==> app-02: + groupadd docker
+		==> app-02: groupadd: group 'docker' already exists
+		==> app-02: + usermod -aG docker vagrant
+		==> app-02: + '[' -f /run/flannel/subnet.env ']'
+		==> app-02: + . /run/flannel/subnet.env
+		==> app-02: ++ FLANNEL_NETWORK=44.0.0.0/8
+		==> app-02: ++ FLANNEL_SUBNET=44.1.40.1/24
+		==> app-02: ++ FLANNEL_MTU=1472
+		==> app-02: ++ FLANNEL_IPMASQ=false
+		==> app-02: + sudo sed -i s/DOCKER_OPTS=/#DOCKER_OPTS=/g /etc/default/docker
+		==> app-02: + sudo tee -a /etc/default/docker
+		==> app-02: + echo 'DOCKER_OPTS="--bip=44.1.40.1/24 --mtu=1472"'
+		==> app-02: DOCKER_OPTS="--bip=44.1.40.1/24 --mtu=1472"
+		==> app-02: + service docker stop
+		==> app-02: stop: Unknown instance: 
+		==> app-02: + sudo ip link delete docker0
+		==> app-02: Cannot find device "docker0"
+		==> app-02: + service docker start
+		==> app-02: docker start/running, process 8435
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: kubernetes
+		==> app-02: + cd /opt/
+		==> app-02: + mkdir /opt/kubernetes-1.5.0
+		==> app-02: + tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
+		==> app-02: + cd /opt/kubernetes-1.5.0/server/
+		==> app-02: + tar -zxf kubernetes-server-linux-amd64.tar.gz
+		==> app-02: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
+		==> app-02: + echo 'alias kubectl='\''kubectl --server=44.0.0.103:8888'\'''
+		==> app-02: + tee -a /root/.bashrc
+		==> app-02: alias kubectl='kubectl --server=44.0.0.103:8888'
+		==> app-02: + source /root/.bashrc
+		==> app-02: ++ '[' -z '' ']'
+		==> app-02: ++ return
+		==> app-02: + mkdir /var/log/kubernetes
+		==> app-02: + chown vagrant:vagrant /var/log/kubernetes
+		==> app-02: + chown -R vagrant:vagrant /opt/kubernetes-1.5.0
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: kubernetes
+		==> app-02: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubelet /usr/local/bin/kubelet
+		==> app-02: + mkdir /var/lib/kubelet
+		==> app-02: + cp /vagrant/.kubeconfig /var/lib/kubelet/kubeconfig
+		==> app-02: + cp /vagrant/kubelet.conf /etc/init/kubelet.conf
+		==> app-02: + env MY_IP=44.0.0.102
+		==> app-02: XDG_SESSION_ID=2
+		==> app-02: SHELL=/bin/bash
+		==> app-02: TERM=vt100
+		==> app-02: SSH_CLIENT=10.0.2.2 39192 22
+		==> app-02: USER=root
+		==> app-02: SUDO_USER=vagrant
+		==> app-02: SUDO_UID=1000
+		==> app-02: USERNAME=root
+		==> app-02: MAIL=/var/mail/vagrant
+		==> app-02: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+		==> app-02: PWD=/home/vagrant
+		==> app-02: LANG=en_US.UTF-8
+		==> app-02: SHLVL=3
+		==> app-02: HOME=/root
+		==> app-02: SUDO_COMMAND=/bin/bash -l
+		==> app-02: LOGNAME=root
+		==> app-02: SSH_CONNECTION=10.0.2.2 39192 10.0.2.15 22
+		==> app-02: XDG_RUNTIME_DIR=/run/user/1000
+		==> app-02: SUDO_GID=1000
+		==> app-02: IP=44.0.0.102
+		==> app-02: _=/usr/bin/env
+		==> app-02: MY_IP=44.0.0.102
+		==> app-02: + start kubelet
+		==> app-02: kubelet start/running, process 8570
+		==> app-02: Running provisioner: shell...
+		    app-02: Running: script: kubernetes
+		==> app-02: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-proxy /usr/local/bin/kube-proxy
+		==> app-02: + cp /vagrant/kube-proxy.conf /etc/init/kube-proxy.conf
+		==> app-02: + start kube-proxy
+		==> app-02: kube-proxy start/running, process 8603
+		==> app-03: Importing base box 'ubuntu/trusty64'...
+		==> app-03: Matching MAC address for NAT networking...
+		==> app-03: Checking if box 'ubuntu/trusty64' is up to date...
+		==> app-03: There was a problem while downloading the metadata for your box
+		==> app-03: to check for updates. This is not an error, since it is usually due
+		==> app-03: to temporary network problems. This is just a warning. The problem
+		==> app-03: encountered was:
+		==> app-03: 
+		==> app-03: Couldn't resolve host 'atlas.hashicorp.com'
+		==> app-03: 
+		==> app-03: If you want to check for box updates, verify your network connection
+		==> app-03: is valid and try again.
+		==> app-03: Setting the name of the VM: kube-scratch-lab_app-03_1478015618199_98767
+		==> app-03: Clearing any previously set forwarded ports...
+		==> app-03: Fixed port collision for 22 => 2222. Now on port 2201.
+		==> app-03: Clearing any previously set network interfaces...
+		==> app-03: Preparing network interfaces based on configuration...
+		    app-03: Adapter 1: nat
+		    app-03: Adapter 2: hostonly
+		==> app-03: Forwarding ports...
+		    app-03: 22 (guest) => 2201 (host) (adapter 1)
+		==> app-03: Running 'pre-boot' VM customizations...
+		==> app-03: Booting VM...
+		==> app-03: Waiting for machine to boot. This may take a few minutes...
+		    app-03: SSH address: 127.0.0.1:2201
+		    app-03: SSH username: vagrant
+		    app-03: SSH auth method: private key
+		    app-03: Warning: Remote connection disconnect. Retrying...
+		    app-03: Warning: Remote connection disconnect. Retrying...
+		    app-03: 
+		    app-03: Vagrant insecure key detected. Vagrant will automatically replace
+		    app-03: this with a newly generated keypair for better security.
+		    app-03: 
+		    app-03: Inserting generated public key within guest...
+		    app-03: Removing insecure key from the guest if it's present...
+		    app-03: Key inserted! Disconnecting and reconnecting using new SSH key...
+		==> app-03: Machine booted and ready!
+		[app-03] GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
+		stdin: is not a tty
+		 * Stopping VirtualBox Additions
+		   ...done.
+		stdin: is not a tty
+		Reading package lists...
+		Building dependency tree...
+		Reading state information...
+		The following packages were automatically installed and are no longer required:
+		  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
+		  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
+		  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
+		  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
+		  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
+		  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
+		  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
+		  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
+		  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
+		  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
+		  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
+		  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
+		  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
+		  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
+		  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
+		  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
+		  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
+		  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
+		  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
+		  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
+		  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
+		  manpages-dev notification-daemon sound-theme-freedesktop x11-common
+		  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		  xserver-xorg-core
+		Use 'apt-get autoremove' to remove them.
+		The following packages will be REMOVED:
+		  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
+		0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
+		After this operation, 12.1 MB disk space will be freed.
+		(Reading database ... 62997 files and directories currently installed.)
+		Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		-------- Uninstall Beginning --------
+		Module:  virtualbox-guest
+		Version: 4.3.36
+		Kernel:  3.13.0-98-generic (x86_64)
+		-------------------------------------
+		Status: Before uninstall, this module version was ACTIVE on this kernel.
+		vboxguest.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		vboxsf.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		vboxvideo.ko:
+		 - Uninstallation
+		   - Deleting from: /lib/modules/3.13.0-98-generic/updates/dkms/
+		 - Original module
+		   - No original module was found for this module on this kernel.
+		   - Use the dkms install command to reinstall any previous module version.
+		depmod....
+		DKMS: uninstall completed.
+		------------------------------
+		Deleting module version: 4.3.36
+		completely from the DKMS tree.
+		------------------------------
+		Done.
+		Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+		Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+		Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+		stdin: is not a tty
+		Reading package lists...
+		Building dependency tree...
+		Reading state information...
+		dkms is already the newest version.
+		dkms set to manually installed.
+		linux-headers-3.13.0-98-generic is already the newest version.
+		linux-headers-3.13.0-98-generic set to manually installed.
+		The following packages were automatically installed and are no longer required:
+		  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+		  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+		  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+		  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+		  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+		  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+		  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+		  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+		  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+		  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+		  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+		  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+		  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+		  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+		  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+		  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+		  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+		  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+		  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+		  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		  xserver-xorg-core
+		Use 'apt-get autoremove' to remove them.
+		0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+		Copy iso file /usr/share/virtualbox/VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
+		stdin: is not a tty
+		mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
+		Installing Virtualbox Guest Additions 5.1.8 - guest version is 4.3.36
+		stdin: is not a tty
+		Verifying archive integrity... All good.
+		Uncompressing VirtualBox 5.1.8 Guest Additions for Linux...........
+		VirtualBox Guest Additions installer
+		Copying additional installer modules ...
+		Installing additional modules ...
+		vboxadd.sh: Building Guest Additions kernel modules.
+		vboxadd.sh: Starting the VirtualBox Guest Additions.
+		Could not find the X.Org or XFree86 Window System, skipping.
+		stdin: is not a tty
+		Got different reports about installed GuestAdditions version:
+		Virtualbox on your host claims:   4.3.36
+		VBoxService inside the vm claims: 5.1.8
+		Going on, assuming VBoxService is correct...
+		Got different reports about installed GuestAdditions version:
+		Virtualbox on your host claims:   4.3.36
+		VBoxService inside the vm claims: 5.1.8
+		Going on, assuming VBoxService is correct...
+		==> app-03: Checking for guest additions in VM...
+		    app-03: The guest additions on this VM do not match the installed version of
+		    app-03: VirtualBox! In most cases this is fine, but in rare cases it can
+		    app-03: prevent things such as shared folders from working properly. If you see
+		    app-03: shared folder errors, please make sure the guest additions within the
+		    app-03: virtual machine match the version of VirtualBox you have installed on
+		    app-03: your host and reload your VM.
+		    app-03: 
+		    app-03: Guest Additions Version: 4.3.36
+		    app-03: VirtualBox Version: 5.1
+		==> app-03: Setting hostname...
+		==> app-03: Configuring and enabling network interfaces...
+		==> app-03: Mounting shared folders...
+		    app-03: /vagrant => /home/minkuan/Documents/96-workspace/kube-scratch-lab
+		==> app-03: Running provisioner: fix-no-tty (shell)...
+		    app-03: Running: inline script
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: ipv6-forwarding
+		==> app-03: net.ipv4.ip_forward = 1
+		==> app-03: net.ipv6.conf.all.forwarding = 1
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: etcd
+		==> app-03: + echo 'environments: 44.0.0.103, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380,app-03=http:\/\/44.0.0.103:2380'
+		==> app-03: environments: 44.0.0.103, existing, app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380,app-03=http:\/\/44.0.0.103:2380
+		==> app-03: + cd /opt/
+		==> app-03: + mkdir /opt/etcd-v3.0.1
+		==> app-03: + cp /vagrant/etcd-v3.0.1-linux-amd64.tar.gz /opt/
+		==> app-03: + tar -zxf etcd-v3.0.1-linux-amd64.tar.gz -C etcd-v3.0.1 --strip-components=1
+		==> app-03: + ln -s /opt/etcd-v3.0.1/etcd /usr/local/bin/etcd
+		==> app-03: + ln -s /opt/etcd-v3.0.1/etcdctl /usr/local/bin/etcdctl
+		==> app-03: + cp /vagrant/etcd.conf /etc/init/etcd.conf
+		==> app-03: + sed -e s/MY_IP/44.0.0.103/g -e s/MY_CLUSTER_STATE/existing/g -e 's/MY_CLUSTER/app-01=http:\/\/44.0.0.101:2380,app-02=http:\/\/44.0.0.102:2380,app-03=http:\/\/44.0.0.103:2380/g'
+		==> app-03: + mkdir /var/lib/etcd
+		==> app-03: + chown vagrant:vagrant /var/lib/etcd
+		==> app-03: + mkdir /var/log/etcd
+		==> app-03: + chown vagrant:vagrant /var/log/etcd
+		==> app-03: + start etcd
+		==> app-03: etcd start/running, process 5571
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: flannel
+		==> app-03: + cd /opt/
+		==> app-03: + mkdir /opt/flanneld-0.6.2
+		==> app-03: + cp /vagrant/flannel-v0.6.2-linux-amd64.tar.gz /opt/
+		==> app-03: + tar -zxf flannel-v0.6.2-linux-amd64.tar.gz -C flanneld-0.6.2
+		==> app-03: + ln -s /opt/flanneld-0.6.2/flanneld /usr/local/bin/flanneld
+		==> app-03: + cp /vagrant/flanneld.conf /etc/init/flanneld.conf
+		==> app-03: + mkdir /var/log/flannel
+		==> app-03: + chown vagrant:vagrant /var/log/flannel
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: flannel
+		==> app-03: flanneld start/running, process 5623
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: docker
+		==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+		==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+		==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+		==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+		==> app-03: deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+		==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+		==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+		==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+		==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+		==> app-03: deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+		==> app-03: + apt-get update -qq
+		==> app-03: + apt-get install -y docker.io
+		==> app-03: Reading package lists...
+		==> app-03: Building dependency tree...
+		==> app-03: 
+		==> app-03: Reading state information...
+		==> app-03: The following packages were automatically installed and are no longer required:
+		==> app-03:   acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+		==> app-03:   fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+		==> app-03:   libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+		==> app-03:   libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+		==> app-03:   libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+		==> app-03:   libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+		==> app-03:   libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+		==> app-03:   libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+		==> app-03:   libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+		==> app-03:   libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+		==> app-03:   libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+		==> app-03:   libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+		==> app-03:   libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+		==> app-03:   libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+		==> app-03:   libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+		==> app-03:   libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+		==> app-03:   libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+		==> app-03:   libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+		==> app-03:   libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+		==> app-03:   libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+		==> app-03:   libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+		==> app-03:   x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+		==> app-03:   xserver-xorg-core
+		==> app-03: Use 'apt-get autoremove' to remove them.
+		==> app-03: The following extra packages will be installed:
+		==> app-03:   aufs-tools cgroup-lite git git-man liberror-perl
+		==> app-03: Suggested packages:
+		==> app-03:   btrfs-tools debootstrap lxc rinse git-daemon-run git-daemon-sysvinit git-doc
+		==> app-03:   git-el git-email git-gui gitk gitweb git-arch git-bzr git-cvs git-mediawiki
+		==> app-03:   git-svn
+		==> app-03: The following NEW packages will be installed:
+		==> app-03:   aufs-tools cgroup-lite docker.io git git-man liberror-perl
+		==> app-03: 0 upgraded, 6 newly installed, 0 to remove and 15 not upgraded.
+		==> app-03: Need to get 8,150 kB of archives.
+		==> app-03: After this operation, 51.4 MB of additional disk space will be used.
+		==> app-03: Get:1 http://mirrors.aliyun.com/ubuntu/ trusty/universe aufs-tools amd64 1:3.2+20130722-1.1 [92.3 kB]
+		==> app-03: Get:2 http://mirrors.aliyun.com/ubuntu/ trusty-updates/universe docker.io amd64 1.6.2~dfsg1-1ubuntu4~14.04.1 [4,749 kB]
+		==> app-03: Get:3 http://mirrors.aliyun.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+		==> app-03: Get:4 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
+		==> app-03: Get:5 http://mirrors.aliyun.com/ubuntu/ trusty-security/main git amd64 1:1.9.1-1ubuntu0.3 [2,586 kB]
+		==> app-03: Get:6 http://mirrors.aliyun.com/ubuntu/ trusty/main cgroup-lite all 1.9 [3,918 B]
+		==> app-03: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+		==> app-03: Fetched 8,150 kB in 25s (318 kB/s)
+		==> app-03: Selecting previously unselected package aufs-tools.
+		==> app-03: (Reading database ... 62722 files and directories currently installed.)
+		==> app-03: Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1_amd64.deb ...
+		==> app-03: Unpacking aufs-tools (1:3.2+20130722-1.1) ...
+		==> app-03: Selecting previously unselected package docker.io.
+		==> app-03: Preparing to unpack .../docker.io_1.6.2~dfsg1-1ubuntu4~14.04.1_amd64.deb ...
+		==> app-03: Unpacking docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
+		==> app-03: Selecting previously unselected package liberror-perl.
+		==> app-03: Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+		==> app-03: Unpacking liberror-perl (0.17-1.1) ...
+		==> app-03: Selecting previously unselected package git-man.
+		==> app-03: Preparing to unpack .../git-man_1%3a1.9.1-1ubuntu0.3_all.deb ...
+		==> app-03: Unpacking git-man (1:1.9.1-1ubuntu0.3) ...
+		==> app-03: Selecting previously unselected package git.
+		==> app-03: Preparing to unpack .../git_1%3a1.9.1-1ubuntu0.3_amd64.deb ...
+		==> app-03: Unpacking git (1:1.9.1-1ubuntu0.3) ...
+		==> app-03: Selecting previously unselected package cgroup-lite.
+		==> app-03: Preparing to unpack .../cgroup-lite_1.9_all.deb ...
+		==> app-03: Unpacking cgroup-lite (1.9) ...
+		==> app-03: Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+		==> app-03: Processing triggers for ureadahead (0.100.0-16) ...
+		==> app-03: Setting up aufs-tools (1:3.2+20130722-1.1) ...
+		==> app-03: Setting up docker.io (1.6.2~dfsg1-1ubuntu4~14.04.1) ...
+		==> app-03: Adding group `docker' (GID 113) ...
+		==> app-03: Done.
+		==> app-03: docker start/running, process 8258
+		==> app-03: Setting up liberror-perl (0.17-1.1) ...
+		==> app-03: Setting up git-man (1:1.9.1-1ubuntu0.3) ...
+		==> app-03: Setting up git (1:1.9.1-1ubuntu0.3) ...
+		==> app-03: Setting up cgroup-lite (1.9) ...
+		==> app-03: cgroup-lite start/running
+		==> app-03: Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+		==> app-03: Processing triggers for ureadahead (0.100.0-16) ...
+		==> app-03: + service docker status
+		==> app-03: docker start/running, process 8258
+		==> app-03: + service docker stop
+		==> app-03: docker stop/waiting
+		==> app-03: + groupadd docker
+		==> app-03: groupadd: group 'docker' already exists
+		==> app-03: + usermod -aG docker vagrant
+		==> app-03: + '[' -f /run/flannel/subnet.env ']'
+		==> app-03: + . /run/flannel/subnet.env
+		==> app-03: ++ FLANNEL_NETWORK=44.0.0.0/8
+		==> app-03: ++ FLANNEL_SUBNET=44.1.20.1/24
+		==> app-03: ++ FLANNEL_MTU=1472
+		==> app-03: ++ FLANNEL_IPMASQ=false
+		==> app-03: + sudo sed -i s/DOCKER_OPTS=/#DOCKER_OPTS=/g /etc/default/docker
+		==> app-03: + sudo tee -a /etc/default/docker
+		==> app-03: + echo 'DOCKER_OPTS="--bip=44.1.20.1/24 --mtu=1472"'
+		==> app-03: DOCKER_OPTS="--bip=44.1.20.1/24 --mtu=1472"
+		==> app-03: + service docker stop
+		==> app-03: stop: Unknown instance: 
+		==> app-03: + sudo ip link delete docker0
+		==> app-03: Cannot find device "docker0"
+		==> app-03: + service docker start
+		==> app-03: docker start/running, process 8439
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: kubernetes
+		==> app-03: + cd /opt/
+		==> app-03: + mkdir /opt/kubernetes-1.5.0
+		==> app-03: + tar -zxf /vagrant/kubernetes.tar.gz -C kubernetes-1.5.0 --strip-components=1
+		==> app-03: + cd /opt/kubernetes-1.5.0/server/
+		==> app-03: + tar -zxf kubernetes-server-linux-amd64.tar.gz
+		==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubectl /usr/local/bin/kubectl
+		==> app-03: + echo 'alias kubectl='\''kubectl --server=44.0.0.103:8888'\'''
+		==> app-03: + tee -a /root/.bashrc
+		==> app-03: alias kubectl='kubectl --server=44.0.0.103:8888'
+		==> app-03: + source /root/.bashrc
+		==> app-03: ++ '[' -z '' ']'
+		==> app-03: ++ return
+		==> app-03: + mkdir /var/log/kubernetes
+		==> app-03: + chown vagrant:vagrant /var/log/kubernetes
+		==> app-03: + chown -R vagrant:vagrant /opt/kubernetes-1.5.0
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: kubernetes
+		==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kubelet /usr/local/bin/kubelet
+		==> app-03: + mkdir /var/lib/kubelet
+		==> app-03: + cp /vagrant/.kubeconfig /var/lib/kubelet/kubeconfig
+		==> app-03: + cp /vagrant/kubelet.conf /etc/init/kubelet.conf
+		==> app-03: + env MY_IP=44.0.0.103
+		==> app-03: XDG_SESSION_ID=2
+		==> app-03: SHELL=/bin/bash
+		==> app-03: TERM=vt100
+		==> app-03: SSH_CLIENT=10.0.2.2 41302 22
+		==> app-03: USER=root
+		==> app-03: SUDO_USER=vagrant
+		==> app-03: SUDO_UID=1000
+		==> app-03: USERNAME=root
+		==> app-03: MAIL=/var/mail/vagrant
+		==> app-03: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+		==> app-03: PWD=/home/vagrant
+		==> app-03: LANG=en_US.UTF-8
+		==> app-03: SHLVL=3
+		==> app-03: HOME=/root
+		==> app-03: SUDO_COMMAND=/bin/bash -l
+		==> app-03: LOGNAME=root
+		==> app-03: SSH_CONNECTION=10.0.2.2 41302 10.0.2.15 22
+		==> app-03: XDG_RUNTIME_DIR=/run/user/1000
+		==> app-03: SUDO_GID=1000
+		==> app-03: IP=44.0.0.103
+		==> app-03: _=/usr/bin/env
+		==> app-03: MY_IP=44.0.0.103
+		==> app-03: + start kubelet
+		==> app-03: kubelet start/running, process 8574
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: kubernetes
+		==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-proxy /usr/local/bin/kube-proxy
+		==> app-03: + cp /vagrant/kube-proxy.conf /etc/init/kube-proxy.conf
+		==> app-03: + start kube-proxy
+		==> app-03: kube-proxy start/running, process 8607
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: kubernetes
+		==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-apiserver /usr/local/bin/kube-apiserver
+		==> app-03: + cp /vagrant/kube-apiserver.conf /etc/init/kube-apiserver.conf
+		==> app-03: + start kube-apiserver
+		==> app-03: kube-apiserver start/running, process 8652
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: kubernetes
+		==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-controller-manager /usr/local/bin/kube-controller-manager
+		==> app-03: + cp /vagrant/kube-controller-manager.conf /etc/init/kube-controller-manager.conf
+		==> app-03: + start kube-controller-manager
+		==> app-03: kube-controller-manager start/running, process 8702
+		==> app-03: Running provisioner: shell...
+		    app-03: Running: script: kubernetes
+		==> app-03: + ln -s /opt/kubernetes-1.5.0/server/kubernetes/server/bin/kube-scheduler /usr/local/bin/kube-scheduler
+		==> app-03: + cp /vagrant/kube-scheduler.conf /etc/init/kube-scheduler.conf
+		==> app-03: + start kube-scheduler
+		==> app-03: kube-scheduler start/running, process 8728
+		2016年 11月 01日 星期二 23:57:34 CST
