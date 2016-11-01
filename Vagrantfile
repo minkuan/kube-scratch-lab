@@ -8,7 +8,12 @@ $app_mem = 1024
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu-trusty64-docker"
+  config.vm.box_url = "file:///home/minkuan/vm-install/ubuntu-trusty64-docker-2.box"
+  config.ssh.private_key_path = "/home/minkuan/.ssh/id_rsa_vagrant"
+  config.ssh.username = 'vagrant'
+  config.ssh.password = 'vagrant'
+  config.ssh.forward_agent = true
   config.vm.provision "fix-no-tty", type: "shell" do |s|
         s.privileged = false
         s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
@@ -16,7 +21,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", name:"ipv6-forwarding", inline: "sudo sed -i 's/#net.ipv6.conf.all.forwarding=1/net.ipv6.conf.all.forwarding=1/g' /etc/sysctl.conf && sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf && sudo sysctl -p /etc/sysctl.conf"
 
-  config.vm.provision "shell", path: "openconnect.sh", name: "openconnect"
+  # config.vm.provision "shell", path: "openconnect.sh", name: "openconnect"
 
 
   (1..$instances).each do |i|
@@ -26,8 +31,8 @@ Vagrant.configure(2) do |config|
       config.vm.provider :virtualbox do |vb|
         vb.memory = $app_mem
         vb.cpus = $app_cpus
-        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        #vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       end
 
       # create a private network
@@ -58,8 +63,8 @@ Vagrant.configure(2) do |config|
       end
 
       # section C - docker 注意这里使用vagrant自身内嵌提供的docker构建
-      config.vm.provision "docker"
-      config.vm.provision "shell", name: "docker", path: "docker.sh"
+      # config.vm.provision "docker"
+      # config.vm.provision "shell", name: "docker", path: "docker.sh"
 
       # section D - kubernetes
       config.vm.provision "shell", name: "kubernetes", path: "kubernetes.sh"
