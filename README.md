@@ -40,9 +40,9 @@
 	: No such device
 	解决办法：
 
-		- 升级virtualbox为5.1版本
-		- 升级vagrant为1.8.6版本
-		- 安装vagrant-vbguest插件
+	- 升级virtualbox为5.1版本
+	- 升级vagrant为1.8.6版本
+	- 安装vagrant-vbguest插件
 			vagrant plugin install vagrant-vbguest
 
 ## 要点
