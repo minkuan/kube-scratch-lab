@@ -38,6 +38,7 @@
 		mount -t vboxsf -o uid=1000,gid=1000 vagrant /vagrant 
 	The error output from the command was: 
 	: No such device
+
 	解决办法：
 
 	- 升级virtualbox为5.1版本
