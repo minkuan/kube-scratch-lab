@@ -5,7 +5,7 @@
 1. 从0到1建立kubernetes 1.5集群
 
 	- 部署kubernetes集群到3台vagrant ubuntu/trusty64虚拟机
-	- flannel(0.6.2) overlay传输kubernetes集群网络通信，管理kubernetes集群子网
+	- flannel(0.6.2) 管理kubernetes集群子网，overlay传输kubernetes集群网络通信
 	- 部署kubernetes组件（如kubelet/kube-proxy/kube-apiserver/kube-controller-manager/kube-scheduler）为linux进程/服务
 	- etcd kv-store存储flannel的子网配置
 	- 设置docker bip为flannel网段
@@ -61,6 +61,12 @@
 2. ruby编程编写Vagrantfile
 3. vagrant shell provisioning过程中，shell脚本接受Vagrantfile传入的环境变量
 4. flanneld使用etcd存储子网信息，作为etcd的客户端，访问etcd的127.0.0.1:2379。
+
+### 集群管理CLI门户kubectl
+	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ kubectl config set-cluster kube-from-scratch --server=http://44.0.0.103:8888 --api-version=1
+	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ kubectl config set-context kube-from-scratch --cluster=kube-from-scratch
+	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ kubectl config use-context kube-from-scratch
+	
 
 ## 接下来
 1. kubernetes集群的管理
