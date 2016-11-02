@@ -56,17 +56,53 @@
 	- 安装vagrant-vbguest插件
 			vagrant plugin install vagrant-vbguest
 
+7. namespace local不存在
+
+	报错信息如下：
+		vagrant@app-03:/vagrant$ kubectl describe services/kubernetes-dashboard
+		Error from server (NotFound): namespaces "local" not found
+
+	原因：kubectl所使用的config中错误指定了"local" namespace
+		vagrant@app-03:/vagrant$ kubectl config view -o yaml
+		apiVersion: v1
+		clusters:
+		- cluster:
+				insecure-skip-tls-verify: true
+				server: http://44.0.0.103:8888
+			name: vagrant
+		contexts:
+		- context:
+				cluster: vagrant
+				namespace: local
+				user: ""
+			name: local
+		current-context: local
+		kind: Config
+		preferences: {}
+		users: []
+		vagrant@app-03:/vagrant$
+
+	解决：将kubernetes配置的"local" namespace修改为"default"
+		vagrant@app-03:/vagrant$ kubectl config set-context local --namespace=default
+		context "local" set.
+
 ## 要点
 1. ubuntu service upstart配置：*.conf, *.override, *.conf中接受环境变量
 2. ruby编程编写Vagrantfile
 3. vagrant shell provisioning过程中，shell脚本接受Vagrantfile传入的环境变量
 4. flanneld使用etcd存储子网信息，作为etcd的客户端，访问etcd的127.0.0.1:2379。
 
-### 集群管理CLI门户kubectl
+## 集群管理门户
+### kubectl
+1. 设置当前管理的集群
 	$ kubectl config set-cluster kube-from-scratch --server=http://44.0.0.103:8888 --api-version=1
 	$ kubectl config set-context kube-from-scratch --cluster=kube-from-scratch
 	$ kubectl config use-context kube-from-scratch
+2. 设置管理员权限
 
+### kube-dashboard
+1. 部署
+	kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
 ## 接下来
 1. kubernetes集群的管理
 	- 新增节点
@@ -78,7 +114,7 @@
 ## 验证
 1. 进程
 
-		pp-03:~$ ps -e -o pid,cmd | grep --color -E 'etcd|flannel|docker|kube' 
+		app-03:~$ ps -e -o pid,cmd | grep --color -E 'etcd|flannel|docker|kube' 
 		3190 etcd
 		3242 flanneld
 		5005 grep --color=auto --color -E etcd|flannel|docker|kube
@@ -91,19 +127,19 @@
 		31848 kube-scheduler --master=http://44.0.0.103:8888 --logtostderr=true
 2. kubernetes
 
-		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get no 
-		NAME         STATUS    AGE
-		44.0.0.101   Ready     1h
-		44.0.0.102   Ready     1h
-		44.0.0.103   Ready     1h
-		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get ns
+		$ kubectl get no
+		NAME         STATUS     AGE
+		44.0.0.101   NotReady   11h
+		44.0.0.102   NotReady   11h
+		44.0.0.103   NotReady   11h
+		$ kubectl get svc
+		NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+		kubernetes   107.0.0.1    <none>        443/TCP   11h
+		$ kubectl get ns
 		NAME          STATUS    AGE
-		default       Active    1h
-		kube-system   Active    1h
-		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get po --all-namespaces
-		vagrant@app-03:~$ kubectl -s 44.0.0.103:8888 get svc --all-namespaces
-		NAMESPACE   NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-		default     kubernetes   107.0.0.1    <none>        443/TCP   9h
+		default       Active    12h
+		kube-system   Active    12h
+		$
 
 ## 详情
 1. 全过程耗时约70分钟，主要时耗是vagrant docker provision
@@ -142,13 +178,6 @@
 		    app-01: Key inserted! Disconnecting and reconnecting using new SSH key...
 		==> app-01: Machine booted and ready!
 		==> app-01: Checking for guest additions in VM...
-		    app-01: The guest additions on this VM do not match the installed version of
-		    app-01: VirtualBox! In most cases this is fine, but in rare cases it can
-		    app-01: prevent things such as shared folders from working properly. If you see
-		    app-01: shared folder errors, please make sure the guest additions within the
-		    app-01: virtual machine match the version of VirtualBox you have installed on
-		    app-01: your host and reload your VM.
-		    app-01: 
 		    app-01: Guest Additions Version: 4.3.36
 		    app-01: VirtualBox Version: 5.0
 		==> app-01: Setting hostname...

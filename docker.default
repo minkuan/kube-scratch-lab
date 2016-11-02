@@ -1,3 +1,4 @@
+DOCKER=/usr/bin/dockerd
 if [ -f /run/flannel/subnet.env ]; then  
     echo "update docker options for flannel..."
     . /run/flannel/subnet.env
