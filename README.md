@@ -63,10 +63,9 @@
 4. flanneld使用etcd存储子网信息，作为etcd的客户端，访问etcd的127.0.0.1:2379。
 
 ### 集群管理CLI门户kubectl
-	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ kubectl config set-cluster kube-from-scratch --server=http://44.0.0.103:8888 --api-version=1
-	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ kubectl config set-context kube-from-scratch --cluster=kube-from-scratch
-	minkuan@minkuan-X1:~/Documents/96-workspace/kube-scratch-lab$ kubectl config use-context kube-from-scratch
-	
+	$ kubectl config set-cluster kube-from-scratch --server=http://44.0.0.103:8888 --api-version=1
+	$ kubectl config set-context kube-from-scratch --cluster=kube-from-scratch
+	$ kubectl config use-context kube-from-scratch
 
 ## 接下来
 1. kubernetes集群的管理
