@@ -1,5 +1,20 @@
 # kube-scratch-lab
 
+deb mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt wily-proposed main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-proposed main restricted universe multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse
+
+
+aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsystemd-journal0
+
+
 ## 目标
 
 1. 从0到1建立kubernetes 1.5集群
@@ -95,14 +110,17 @@
 ## 集群管理门户
 ### kubectl
 1. 设置当前管理的集群
-	$ kubectl config set-cluster kube-from-scratch --server=http://44.0.0.103:8888 --api-version=1
-	$ kubectl config set-context kube-from-scratch --cluster=kube-from-scratch
-	$ kubectl config use-context kube-from-scratch
+
+		$ kubectl config set-cluster kube-from-scratch --server=http://44.0.0.103:8888 --api-version=1
+		$ kubectl config set-context kube-from-scratch --cluster=kube-from-scratch
+		$ kubectl config use-context kube-from-scratch
 2. 设置管理员权限
 
 ### kube-dashboard
 1. 部署
-	kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+
+		kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+
 ## 接下来
 1. kubernetes集群的管理
 	- 新增节点
