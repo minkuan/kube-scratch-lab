@@ -2,7 +2,7 @@
 
 kubernetes是Google开源的容器管理系统，源于Google强大的号召力，它也是GitHub最具活力的项目之一。kubernetes的优势在于它有一套良好的、优雅的容器管理系统的设计，如node/pod/service/namespace等概念。为了建立下一代容器云计算平台，就有必要研究并建立kubernetes掌控力；然而，kubernetes目前还存在网络性能低下（压测中性能损耗高达50%）等问题，在性能要求较高的产业环境下，kubernetes尚须优化提升。
 
-本文从0到1打造kubernetes集群环境，熟悉kubernetes环境，掌控建立过程，发现其中的问题，并且找出有效的解决办法。
+本项目从0到1打造kubernetes集群环境，熟悉kubernetes环境，掌控建立过程，发现其中的问题，并且找出有效的解决办法。
 
 ## 目标
 
