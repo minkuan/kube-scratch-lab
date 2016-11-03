@@ -43,33 +43,33 @@ kubernetes是Google开源的容器管理系统，源于Google强大的号召力�
 
 	解决思路：放弃使用vagrant内嵌的docker provision，改为手工安装docker。优化整个搭建过程的效果非常突出，从耗时70+分钟，优化为10+分钟。具体包括：
 
-		- 使用ubuntu auto mirrors技术，选取ubuntu最快的镜像站。注意，国内也未必一定是阿里云镜像最快，比如兰州大学、云南大学的镜像站，往往被实时选取为最快镜像站。
-		- docker最新版本的安装，不仅仅是docker本身，还包括它所有的依赖包。其中，安装linux-headers-$(uname -r)特别耗时。所以，将docker和它的依赖包隔离起来，先安装所有的依赖包。具体为：aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsystemd-journal0
-		- 最后，从docker主站仅仅安装docker-engine，这需要使用VPN
+	- 使用ubuntu auto mirrors技术，选取ubuntu最快的镜像站。注意，国内也未必一定是阿里云镜像最快，比如兰州大学、云南大学的镜像站，往往被实时选取为最快镜像站。
+	- docker最新版本的安装，不仅仅是docker本身，还包括它所有的依赖包。其中，安装linux-headers-$(uname -r)特别耗时。所以，将docker和它的依赖包隔离起来，先安装所有的依赖包。具体为：aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsystemd-journal0
+	- 最后，从docker主站仅仅安装docker-engine，这需要使用VPN
 		
 	注意：
 
-		- 使用国内阿里云镜像安装docker.io，得到的是1.18版本的docker，整个kubernetes集群的状态正常，如kubectl get no将列出当前集群中的所有节点，等等；kubernetes 1.5要求docker版本>=1.21，因而整个kubernetes无法进行发布容器等管理容器的工作，比如新起容器将失败。
+	- 使用国内阿里云镜像安装docker.io，得到的是1.18版本的docker，整个kubernetes集群的状态正常，如kubectl get no将列出当前集群中的所有节点，等等；kubernetes 1.5要求docker版本>=1.21，因而整个kubernetes无法进行发布容器等管理容器的工作，比如新起容器将失败。
 
-		- 造成速度慢的罪魁祸首
+	- 造成速度慢的罪魁祸首
 
-			- 从archive.ubuntu.com安装linux-headers-$(uname -r)的过程非常耗时
-			
-					1 upgraded, 2 newly installed, 0 to remove and 25 not upgraded.
-					Need to get 9,629 kB of archives.
-					After this operation, 77.0 MB of additional disk space will be used.
-					Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dkms all 2.2.0.3-1.1ubuntu5.14.04.9 [65.7 kB]
-					Get:2 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101 all 3.13.0-101.148 [8,867 kB]
-					Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]
-
-			- 安装最新版docker的过程非常耗时			
+		- 从archive.ubuntu.com安装linux-headers-$(uname -r)的过程非常耗时
 		
-					==> app-03: The following NEW packages will be installed:
-					==> app-03:   docker-engine
-					==> app-03: 0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
-					==> app-03: Need to get 19.2 MB of archives.
-					==> app-03: After this operation, 102 MB of additional disk space will be used.
-					==> app-03: Get:1 https://apt.dockerproject.org/repo/ ubuntu-trusty/main docker-engine amd64 1.12.3-0~trusty [19.2 MB]
+				1 upgraded, 2 newly installed, 0 to remove and 25 not upgraded.
+				Need to get 9,629 kB of archives.
+				After this operation, 77.0 MB of additional disk space will be used.
+				Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dkms all 2.2.0.3-1.1ubuntu5.14.04.9 [65.7 kB]
+				Get:2 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101 all 3.13.0-101.148 [8,867 kB]
+				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]
+
+		- 安装最新版docker的过程非常耗时			
+	
+				==> app-03: The following NEW packages will be installed:
+				==> app-03:   docker-engine
+				==> app-03: 0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
+				==> app-03: Need to get 19.2 MB of archives.
+				==> app-03: After this operation, 102 MB of additional disk space will be used.
+				==> app-03: Get:1 https://apt.dockerproject.org/repo/ ubuntu-trusty/main docker-engine amd64 1.12.3-0~trusty [19.2 MB]
 
 2. app-03 etcd不能加入etcd集群。app-03 etcd起动时失败，导致etcd service起动不成功；app-01 etcd leader报错：无法连接app-03 etcd。重起etcd leader才能解决；显然，重起etcd leader在工程实践中应当是不可接受的。
 3. etcd v3.1.0-rc版本报错：无法在0.0.0.0:2379找到etcd leader。
