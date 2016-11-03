@@ -60,7 +60,7 @@ sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && su
 				After this operation, 77.0 MB of additional disk space will be used.
 				Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dkms all 2.2.0.3-1.1ubuntu5.14.04.9 [65.7 kB]
 				Get:2 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101 all 3.13.0-101.148 [8,867 kB]
-				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]			
+				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]				
 		- 最新版docker
 				==> app-03: The following NEW packages will be installed:
 				==> app-03:   docker-engine
