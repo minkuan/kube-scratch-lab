@@ -50,11 +50,13 @@ sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && su
 
 ## 问题及其解决
 1. vagrant内嵌docker provisioning时网速极慢，所以在虚拟机中连接VPN；但手工docker provision时，发生vagrant不能加入docker组问题。
-  - 手工provision docker时，解决vagrant加入docker组问题：$ usermod -aG docker vagrant
-  - * 改为手工provision docker后，整个kubernetes集群构建的时间，从>70分钟，缩短为17分钟！ * 
+	- 手工provision docker时，解决vagrant加入docker组问题：$ usermod -aG docker vagrant
+	- * 改为手工provision docker后，整个kubernetes集群构建的时间，从>70分钟，缩短为17分钟！ * 
   	但是，在这种方式下，使用国内阿里云镜像安装docker.io，得到的是1.18版本的docker，整个kubernetes集群的状态正常，如kubectl get no将列出当前集群中的所有节点，等等；kubernetes 1.5要求docker版本>=1.21，因而整个kubernetes无法进行发布容器等管理容器的工作，比如新起容器将失败。
-  - 造成速度慢的罪魁祸首
-  	- 从archive.ubuntu.com安装linux-headers-$(uname -r)
+
+	- 造成速度慢的罪魁祸首
+
+		- 从archive.ubuntu.com安装linux-headers-$(uname -r)的过程非常耗时
   	
 				1 upgraded, 2 newly installed, 0 to remove and 25 not upgraded.
 				Need to get 9,629 kB of archives.
@@ -63,7 +65,7 @@ sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && su
 				Get:2 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101 all 3.13.0-101.148 [8,867 kB]
 				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]
 
-		- 最新版docker
+		- 安装最新版docker的过程非常耗时
 		
 				==> app-03: The following NEW packages will be installed:
 				==> app-03:   docker-engine
