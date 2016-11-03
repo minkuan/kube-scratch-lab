@@ -9,6 +9,7 @@ $app_mem = 1024
 Vagrant.configure(2) do |config|
 
   config.vm.box = "ubuntu/trusty64"
+  config.vm.box_check_update = false
   # eth0多IP问题，虚拟机子网不能互通。
   # config.vm.box_url = "file:///home/minkuan/vm-install/ubuntu-trusty64-docker-2.box"
   # config.ssh.private_key_path = "/home/minkuan/.ssh/id_rsa_vagrant"
@@ -22,7 +23,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", name:"ipv6-forwarding", inline: "sudo sed -i 's/#net.ipv6.conf.all.forwarding=1/net.ipv6.conf.all.forwarding=1/g' /etc/sysctl.conf && sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf && sudo sysctl -p /etc/sysctl.conf"
 
-  # config.vm.provision "shell", path: "openconnect.sh", name: "openconnect"
+  config.vm.provision "shell", path: "openconnect.sh", name: "openconnect"
 
   (1..$instances).each do |i|
     config.vm.define vm_name = "%s-%02d"%[$instance_name_prefix, i] do |config|
@@ -31,25 +32,32 @@ Vagrant.configure(2) do |config|
       config.vm.provider :virtualbox do |vb|
         vb.memory = $app_mem
         vb.cpus = $app_cpus
-        #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-        #vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       end
 
       # create a private network
       ip = "44.0.0.#{i+100}"
-      config.vm.network :private_network, ip: ip
+      config.vm.network "private_network", ip: ip, auto_config: false
+      
+      my_ifconfig_cmd = "ifconfig eth1 #{ip}/24 netmask 255.255.255.0 up"
+      
+      config.vm.provision "shell", name:"my-if-config-inline", run: "always", inline: my_ifconfig_cmd
+      # path: "my-if-config.sh", env: {"IP"=>ip}
 
       # section A - etcd
       state = "new"
       cluster = "app-01=http:\\/\\/44.0.0.101:2380"
       if i > 1
         state = "existing"
+        # 这里编码有问题，导致$instances至少大于等于3.
         (2..i).each do |j|
           cluster = "#{cluster},app-0#{j}=http:\\/\\/44.0.0.#{j+100}:2380"
         end
       end
       # 注意给etcd.sh传递了3个环境变量，etcd.sh将使用这3个环境变量。
       config.vm.provision "shell", path: "etcd.sh", name: "etcd", env:{"IP"=>ip, "CLUSTER_STATE"=>state, "CLUSTER"=>cluster}
+      config.vm.provision "shell", inline:"service etcd restart", run:"always"
 
       # section B - flannel
       config.vm.provision "shell", path: "flanneld.sh", name: "flannel"
@@ -57,6 +65,7 @@ Vagrant.configure(2) do |config|
         config.vm.provision "shell", name: "flannel-config", inline: "etcdctl mkdir /network; etcdctl mk /network/config < /vagrant/flanneld.json"
       end
       config.vm.provision "shell", name: "flannel", inline: "start flanneld"
+      config.vm.provision "shell", inline:"service flanneld restart", run:"always"
       if $instances > 1 && i < $instances
         # etcdctl member add可能失败，因为app-02上的etcd可能找不到leader（根据0.0.0.0:2379）。
         config.vm.provision "shell", name: "etcd-add", inline: "etcdctl member add app-0#{i+1} http://44.0.0.#{i+101}:2380"
@@ -65,15 +74,19 @@ Vagrant.configure(2) do |config|
       # section C - docker 注意这里使用vagrant自身内嵌提供的docker构建. vagrant built-in docker provision速度太慢！
       # config.vm.provision "docker"
       config.vm.provision "shell", name: "docker", path: "docker.sh"
+      config.vm.provision "shell", inline:"service docker restart", run:"always"
 
       # section D - kubernetes
       config.vm.provision "shell", name: "kubernetes", path: "kubernetes.sh"
       config.vm.provision "shell", name: "kubernetes", path: "kubelet.sh", env:{"IP"=>ip}
+      config.vm.provision "shell", inline:"service kubelet restart", run:"always"
       config.vm.provision "shell", name: "kubernetes", path: "kube-proxy.sh"
+      config.vm.provision "shell", inline:"service kube-proxy restart", run:"always"
       if i == $instances
         config.vm.provision "shell", name: "kubernetes", path: "kube-apiserver.sh"
         config.vm.provision "shell", name: "kubernetes", path: "kube-controller-manager.sh"
         config.vm.provision "shell", name: "kubernetes", path: "kube-scheduler.sh"
+	      config.vm.provision "shell", inline:"service kube-apiserver restart && service kube-controller-manager restart && service kube-scheduler restart", run:"always"
       end
 
     end

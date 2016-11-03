@@ -1,6 +1,5 @@
 # kube-scratch-lab
-
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse
+echo "deb mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse
 deb mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse
 deb mirror://mirrors.ubuntu.com/mirrors.txt wily-proposed main restricted universe multiverse
 deb mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse
@@ -9,11 +8,11 @@ deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe mu
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-proposed main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse
-
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse"
 
 aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsystemd-journal0
 
+sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && sudo apt-get install -y openconnect
 
 ## 目标
 
@@ -52,7 +51,24 @@ aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsyste
 ## 问题及其解决
 1. vagrant内嵌docker provisioning时网速极慢，所以在虚拟机中连接VPN；但手工docker provision时，发生vagrant不能加入docker组问题。
   - 手工provision docker时，解决vagrant加入docker组问题：$ usermod -aG docker vagrant
-  - * 改为手工provision docker后，整个kubernetes集群构建的时间，从>70分钟，缩短为17分钟！ *
+  - * 改为手工provision docker后，整个kubernetes集群构建的时间，从>70分钟，缩短为17分钟！ * 
+  	但是，在这种方式下，使用国内阿里云镜像安装docker.io，得到的是1.18版本的docker，整个kubernetes集群的状态正常，如kubectl get no将列出当前集群中的所有节点，等等；kubernetes 1.5要求docker版本>=1.21，因而整个kubernetes无法进行发布容器等管理容器的工作，比如新起容器将失败。
+  - 造成速度慢的罪魁祸首
+  	- 从archive.ubuntu.com安装linux-headers-$(uname -r)
+				1 upgraded, 2 newly installed, 0 to remove and 25 not upgraded.
+				Need to get 9,629 kB of archives.
+				After this operation, 77.0 MB of additional disk space will be used.
+				Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dkms all 2.2.0.3-1.1ubuntu5.14.04.9 [65.7 kB]
+				Get:2 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101 all 3.13.0-101.148 [8,867 kB]
+				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]			
+		- 最新版docker
+				==> app-03: The following NEW packages will be installed:
+				==> app-03:   docker-engine
+				==> app-03: 0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
+				==> app-03: Need to get 19.2 MB of archives.
+				==> app-03: After this operation, 102 MB of additional disk space will be used.
+				==> app-03: Get:1 https://apt.dockerproject.org/repo/ ubuntu-trusty/main docker-engine amd64 1.12.3-0~trusty [19.2 MB]
+
 2. app-03 etcd不能加入etcd集群。app-03 etcd起动时失败，导致etcd service起动不成功；app-01 etcd leader报错：无法连接app-03 etcd。重起etcd leader才能解决；显然，重起etcd leader在工程实践中应当是不可接受的。
 3. etcd v3.1.0-rc版本报错：无法在0.0.0.0:2379找到etcd leader。
 4. Flag --api-servers has been deprecated, Use --kubeconfig instead. Will be removed in a future version.
