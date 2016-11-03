@@ -20,6 +20,8 @@ Vagrant.configure(2) do |config|
         s.privileged = false
         s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
+  
+  config.vm.provision "shell", path: "ubuntu-auto-mirrors.sh", name: "ubuntu-auto-mirrors"
 
   config.vm.provision "shell", name:"ipv6-forwarding", inline: "sudo sed -i 's/#net.ipv6.conf.all.forwarding=1/net.ipv6.conf.all.forwarding=1/g' /etc/sysctl.conf && sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf && sudo sysctl -p /etc/sysctl.conf"
 

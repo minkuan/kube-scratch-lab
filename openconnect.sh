@@ -15,20 +15,6 @@ set -x
 # make install
 # ldconfig /usr/local/lib
 
-if [ ! -f /etc/apt/sources.list.bak ]
-then
-  cp /etc/apt/sources.list /etc/apt/sources.list.bak
-  sudo echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse" > /etc/apt/sources.list
-  sudo echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-proposed main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-proposed main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse" >>/etc/apt/sources.list
-  sudo echo "deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse" >>/etc/apt/sources.list
-fi
 
 # 安装最新版openconnect
 sudo add-apt-repository -y ppa:openconnect/daily

@@ -1,16 +1,4 @@
 # kube-scratch-lab
-echo "deb mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-proposed main restricted universe multiverse
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse
-deb mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily main restricted universe multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-backports main restricted universe multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-proposed main restricted universe multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-security main restricted universe multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt wily-updates main restricted universe multiverse"
-
-aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsystemd-journal0
 
 sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && sudo apt-get install -y openconnect
 
@@ -69,6 +57,8 @@ sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && su
 				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]
 
 		- 安装最新版docker的过程非常耗时
+		
+			aufs-tools cgroup-lite docker-engine git git-man liberror-perl libltdl7 libsystemd-journal0
 		
 				==> app-03: The following NEW packages will be installed:
 				==> app-03:   docker-engine
