@@ -55,6 +55,7 @@ sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && su
   	但是，在这种方式下，使用国内阿里云镜像安装docker.io，得到的是1.18版本的docker，整个kubernetes集群的状态正常，如kubectl get no将列出当前集群中的所有节点，等等；kubernetes 1.5要求docker版本>=1.21，因而整个kubernetes无法进行发布容器等管理容器的工作，比如新起容器将失败。
   - 造成速度慢的罪魁祸首
   	- 从archive.ubuntu.com安装linux-headers-$(uname -r)
+  	
 				1 upgraded, 2 newly installed, 0 to remove and 25 not upgraded.
 				Need to get 9,629 kB of archives.
 				After this operation, 77.0 MB of additional disk space will be used.
@@ -62,6 +63,7 @@ sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && su
 				Get:2 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101 all 3.13.0-101.148 [8,867 kB]
 				Get:3 http://archive.ubuntu.com/ubuntu/ trusty-proposed/main linux-headers-3.13.0-101-generic amd64 3.13.0-101.148 [697 kB]				
 		- 最新版docker
+		
 				==> app-03: The following NEW packages will be installed:
 				==> app-03:   docker-engine
 				==> app-03: 0 upgraded, 1 newly installed, 0 to remove and 26 not upgraded.
