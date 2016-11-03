@@ -1,5 +1,6 @@
 # kube-scratch-lab
 
+kubernetes是Google开源的容器管理系统，源于Google强大的号召力，它也是GitHub最具活力的项目之一。kubernetes的优势在于它有一套良好的、优雅的容器管理系统的设计，如node/pod/service/namespace等概念；然而，kubernetes目前还存在。打造kubernetes环境。
 sudo add-apt-repository -y ppa:openconnect/daily && sudo apt-get update -y && sudo apt-get install -y openconnect
 
 ## 目标
